@@ -1,0 +1,1299 @@
+warning: unused import: `ScriptBuilder`
+ --> src/scripts.rs:2:5
+  |
+2 |     ScriptBuilder,
+  |     ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `create_keystore`, `create_note_for_naming`, and `initiate_client`
+  --> src/scripts.rs:14:14
+   |
+14 |     client::{create_keystore, initiate_client},
+   |              ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^
+15 |     notes::{create_library, create_note_for_naming, create_note_for_naming_with_client},
+   |                             ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/scripts.rs:153:5
+    |
+153 |     /// TODO BURADA PRICES MAPINI KONTROL ET OLMUS MU DIYE
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+154 |     let new_account_state = client.get_account(naming_account.id()).await.unwrap();
+    |     ------------------------------------------------------------------------------- rustdoc does not generate documentation for statements
+    |
+    = help: use `//` for a plain comment
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `keystore`
+  --> src/scripts.rs:23:5
+   |
+23 |     keystore: &mut Arc<FilesystemKeyStore<StdRng>>,
+   |     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_keystore`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `midenname-contracts` (lib) generated 4 warnings (run `cargo fix --lib -p midenname-contracts` to apply 2 suggestions)
+warning: unused import: `deploy`
+  --> bin/local_deploy_and_register.rs:27:36
+   |
+27 | use midenname_contracts::scripts::{deploy, deploy_as_network_account};
+   |                                    ^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `midenname-contracts` (bin "local_deploy_and_register") generated 1 warning (run `cargo fix --bin "local_deploy_and_register"` to apply 1 suggestion)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.20s
+     Running `target/debug/local_deploy_and_register`
+Starting Miden Name Registry deployment...
+=================================================
+Deleting existing store & keystore (store.sqlite3)
+Deletion complete.
+=================================================
+Latest block: 646903
+Deployer account ID: "0xf8c81a467982471020d4ed2560c37f"
+one or more warnings were emitted
+Naming account ID: "0xefd37004e04c3d4062c30679cc4b8c"
+one or more warnings were emitted
+View transaction on MidenScan: https://testnet.midenscan.com/tx/0xbebf459d6adf4aafbdd1335d4e59ddef2a7dc454618db6342947b219e4be4714
+Transaction 0xbebf459d6adf4aafbdd1335d4e59ddef2a7dc454618db6342947b219e4be4714 not yet committed. Waiting...
+Transaction 0xbebf459d6adf4aafbdd1335d4e59ddef2a7dc454618db6342947b219e4be4714 not yet committed. Waiting...
+✅ transaction 0xbebf459d6adf4aafbdd1335d4e59ddef2a7dc454618db6342947b219e4be4714 committed
+one or more warnings were emitted
+View transaction on MidenScan: https://testnet.midenscan.com/tx/0x7c234655f4bda9fbf445a70c44802e7640aad542c1e8085533168087a69c1421
+network init note creation tx submitted, waiting for onchain commitment
+Transaction 0x7c234655f4bda9fbf445a70c44802e7640aad542c1e8085533168087a69c1421 not yet committed. Waiting...
+Transaction 0x7c234655f4bda9fbf445a70c44802e7640aad542c1e8085533168087a69c1421 not yet committed. Waiting...
+Transaction 0x7c234655f4bda9fbf445a70c44802e7640aad542c1e8085533168087a69c1421 not yet committed. Waiting...
+✅ transaction 0x7c234655f4bda9fbf445a70c44802e7640aad542c1e8085533168087a69c1421 committed
+🔢 Final deployer prefix value: 0x0100000000000000000000000000000000000000000000000000000000000000
+one or more warnings were emitted
+View transaction on MidenScan: https://testnet.midenscan.com/tx/0xcee0af50bb65cd7ca38ff617b602d1612e060fffa45603996c3ea012c9ac0708
+network set price note creation tx submitted, waiting for onchain commitment
+Transaction 0xcee0af50bb65cd7ca38ff617b602d1612e060fffa45603996c3ea012c9ac0708 not yet committed. Waiting...
+Transaction 0xcee0af50bb65cd7ca38ff617b602d1612e060fffa45603996c3ea012c9ac0708 not yet committed. Waiting...
+Transaction 0xcee0af50bb65cd7ca38ff617b602d1612e060fffa45603996c3ea012c9ac0708 not yet committed. Waiting...
+✅ transaction 0xcee0af50bb65cd7ca38ff617b602d1612e060fffa45603996c3ea012c9ac0708 committed
+🔢 one letter price value: 0xc00b5a1600000000000000000000000000000000000000000000000000000000
+🔢 two letter price value: 0x00c2eb0b00000000000000000000000000000000000000000000000000000000
+🔢 three letter price value: 0x000e270700000000000000000000000000000000000000000000000000000000
+🔢 four letter price value: 0xc03b470300000000000000000000000000000000000000000000000000000000
+🔢 five letter price value: 0x002d310100000000000000000000000000000000000000000000000000000000
+Creating 70 accounts...
+=================================================
+Deployer account ID: "0x6b56ba8d045bb11032c3630deee22a"
+✅ Created account 1/70: "0x6b56ba8d045bb11032c3630deee22a"
+Deployer account ID: "0x52fd3810733a691069b70b05fe7442"
+✅ Created account 2/70: "0x52fd3810733a691069b70b05fe7442"
+Deployer account ID: "0xc2728ef1d0631c104103cb05ab6468"
+✅ Created account 3/70: "0xc2728ef1d0631c104103cb05ab6468"
+Deployer account ID: "0x51769f0591d663106e8fcf347f1427"
+✅ Created account 4/70: "0x51769f0591d663106e8fcf347f1427"
+Deployer account ID: "0xcd8ee3fabbbd44101c8de05d051dfd"
+✅ Created account 5/70: "0xcd8ee3fabbbd44101c8de05d051dfd"
+Deployer account ID: "0x3f4a348d08bb20106d54ac6c6fe792"
+✅ Created account 6/70: "0x3f4a348d08bb20106d54ac6c6fe792"
+Deployer account ID: "0xf94b402fe212fd10424ec29c11b217"
+✅ Created account 7/70: "0xf94b402fe212fd10424ec29c11b217"
+Deployer account ID: "0x66195099a6be9410056b2fec68bfc4"
+✅ Created account 8/70: "0x66195099a6be9410056b2fec68bfc4"
+Deployer account ID: "0xcc8a33e3313aa5107e6a2f365117f0"
+✅ Created account 9/70: "0xcc8a33e3313aa5107e6a2f365117f0"
+Deployer account ID: "0xff659008dcff65101b649d13e411c6"
+✅ Created account 10/70: "0xff659008dcff65101b649d13e411c6"
+Deployer account ID: "0x777955c52dcf53106c62435fcbe585"
+✅ Created account 11/70: "0x777955c52dcf53106c62435fcbe585"
+Deployer account ID: "0x9aa750d252efdf1056981b02499904"
+✅ Created account 12/70: "0x9aa750d252efdf1056981b02499904"
+Deployer account ID: "0x9090e1a85d93b1102c6ffb8af22dd4"
+✅ Created account 13/70: "0x9090e1a85d93b1102c6ffb8af22dd4"
+Deployer account ID: "0xc78d54f55e843d102632726b2fe122"
+✅ Created account 14/70: "0xc78d54f55e843d102632726b2fe122"
+Deployer account ID: "0x3e97b9240ec8fb106f3c0a5eadc18e"
+✅ Created account 15/70: "0x3e97b9240ec8fb106f3c0a5eadc18e"
+Deployer account ID: "0x482be38adf2e881016f23c8503ed84"
+✅ Created account 16/70: "0x482be38adf2e881016f23c8503ed84"
+Deployer account ID: "0xff0c9c53e1ea6a102b0b137227720a"
+✅ Created account 17/70: "0xff0c9c53e1ea6a102b0b137227720a"
+Deployer account ID: "0x5692814660f155104ca792ef66368e"
+✅ Created account 18/70: "0x5692814660f155104ca792ef66368e"
+Deployer account ID: "0x5a6e1a3500e870105ba5f0f18c5623"
+✅ Created account 19/70: "0x5a6e1a3500e870105ba5f0f18c5623"
+Deployer account ID: "0x1ef5ba5cf3c0b7107c70266bbe2d9b"
+✅ Created account 20/70: "0x1ef5ba5cf3c0b7107c70266bbe2d9b"
+Deployer account ID: "0xfbf13e55bc5ca1102505daede89960"
+✅ Created account 21/70: "0xfbf13e55bc5ca1102505daede89960"
+Deployer account ID: "0x9bbde443222db91016468192831ad6"
+✅ Created account 22/70: "0x9bbde443222db91016468192831ad6"
+Deployer account ID: "0xa2ea535d4a9f76105cf7fd4a1491d1"
+✅ Created account 23/70: "0xa2ea535d4a9f76105cf7fd4a1491d1"
+Deployer account ID: "0x6cf519f73e922110452c8b2f5f995d"
+✅ Created account 24/70: "0x6cf519f73e922110452c8b2f5f995d"
+Deployer account ID: "0x67527c942ad121102f7ca975683a35"
+✅ Created account 25/70: "0x67527c942ad121102f7ca975683a35"
+Deployer account ID: "0xa23ff064db9e84104283c755961b09"
+✅ Created account 26/70: "0xa23ff064db9e84104283c755961b09"
+Deployer account ID: "0x22690fcb85288b1041813dda8285c3"
+✅ Created account 27/70: "0x22690fcb85288b1041813dda8285c3"
+Deployer account ID: "0xd4de91c2a7b40c103c5f54740a8763"
+✅ Created account 28/70: "0xd4de91c2a7b40c103c5f54740a8763"
+Deployer account ID: "0x59e7538b2181eb1025feb88d27f98d"
+✅ Created account 29/70: "0x59e7538b2181eb1025feb88d27f98d"
+Deployer account ID: "0xf6180dd9353bf11028157d436e12e1"
+✅ Created account 30/70: "0xf6180dd9353bf11028157d436e12e1"
+Deployer account ID: "0x42f6ad0fe161d41015c3e3c5021398"
+✅ Created account 31/70: "0x42f6ad0fe161d41015c3e3c5021398"
+Deployer account ID: "0x0d141ce4f0da24102d18e36fca384f"
+✅ Created account 32/70: "0x0d141ce4f0da24102d18e36fca384f"
+Deployer account ID: "0x520c1af83b0a4b1042a1464a4de126"
+✅ Created account 33/70: "0x520c1af83b0a4b1042a1464a4de126"
+Deployer account ID: "0x65960575c0aa49105b53f3096a6d21"
+✅ Created account 34/70: "0x65960575c0aa49105b53f3096a6d21"
+Deployer account ID: "0x569b259860c61f103e88128c5a8986"
+✅ Created account 35/70: "0x569b259860c61f103e88128c5a8986"
+Deployer account ID: "0x956353845eced6106a3bce8bb8b006"
+✅ Created account 36/70: "0x956353845eced6106a3bce8bb8b006"
+Deployer account ID: "0x523d2480a165aa101b6926de64b6f7"
+✅ Created account 37/70: "0x523d2480a165aa101b6926de64b6f7"
+Deployer account ID: "0x24f36d4036885e106640d1e49d3148"
+✅ Created account 38/70: "0x24f36d4036885e106640d1e49d3148"
+Deployer account ID: "0xebfe997f9bbb0a100156968b97565f"
+✅ Created account 39/70: "0xebfe997f9bbb0a100156968b97565f"
+Deployer account ID: "0x25885b0c6d5a87106ee8c8b4ae4081"
+✅ Created account 40/70: "0x25885b0c6d5a87106ee8c8b4ae4081"
+Deployer account ID: "0x9d1a3018ddfb4d102ab3cdd97f2705"
+✅ Created account 41/70: "0x9d1a3018ddfb4d102ab3cdd97f2705"
+Deployer account ID: "0x06673e3ce03f4d1042f110a759772b"
+✅ Created account 42/70: "0x06673e3ce03f4d1042f110a759772b"
+Deployer account ID: "0xb105f633c459581048a79048185edd"
+✅ Created account 43/70: "0xb105f633c459581048a79048185edd"
+Deployer account ID: "0x9953280859f4c0100720bd6e9a411e"
+✅ Created account 44/70: "0x9953280859f4c0100720bd6e9a411e"
+Deployer account ID: "0x998935077856961028aeebaa06072b"
+✅ Created account 45/70: "0x998935077856961028aeebaa06072b"
+Deployer account ID: "0x91af1ba1be0573104b801efbc33ef4"
+✅ Created account 46/70: "0x91af1ba1be0573104b801efbc33ef4"
+Deployer account ID: "0x5b4714937fe1531044fc0c22694195"
+✅ Created account 47/70: "0x5b4714937fe1531044fc0c22694195"
+Deployer account ID: "0xc55c2950b57a0a1017346eb975ab9a"
+✅ Created account 48/70: "0xc55c2950b57a0a1017346eb975ab9a"
+Deployer account ID: "0xe4790a400a9286102bccced4b47421"
+✅ Created account 49/70: "0xe4790a400a9286102bccced4b47421"
+Deployer account ID: "0x74e5bbc7cba14110144fbbc98f7c01"
+✅ Created account 50/70: "0x74e5bbc7cba14110144fbbc98f7c01"
+Deployer account ID: "0x0f1dba56e20194101677b54713d9f9"
+✅ Created account 51/70: "0x0f1dba56e20194101677b54713d9f9"
+Deployer account ID: "0xb5cfa9e7cc3fb41019f372566c4540"
+✅ Created account 52/70: "0xb5cfa9e7cc3fb41019f372566c4540"
+Deployer account ID: "0xae4929cb2e2c6f1014891f6926b9da"
+✅ Created account 53/70: "0xae4929cb2e2c6f1014891f6926b9da"
+Deployer account ID: "0x512fa8a44cd1b8105b68832de13467"
+✅ Created account 54/70: "0x512fa8a44cd1b8105b68832de13467"
+Deployer account ID: "0x2b7856af25cc7c102774dfe8742071"
+✅ Created account 55/70: "0x2b7856af25cc7c102774dfe8742071"
+Deployer account ID: "0x462c9cf971bfd010245c103324f748"
+✅ Created account 56/70: "0x462c9cf971bfd010245c103324f748"
+Deployer account ID: "0xe97efaeb5f3c401053e081d32481ca"
+✅ Created account 57/70: "0xe97efaeb5f3c401053e081d32481ca"
+Deployer account ID: "0xe2f460f30b71d6105d5deba35b5f9b"
+✅ Created account 58/70: "0xe2f460f30b71d6105d5deba35b5f9b"
+Deployer account ID: "0x936b253b36d7c5104389c76d5e5914"
+✅ Created account 59/70: "0x936b253b36d7c5104389c76d5e5914"
+Deployer account ID: "0x88981c2a08f1f5107625c1b227b633"
+✅ Created account 60/70: "0x88981c2a08f1f5107625c1b227b633"
+Deployer account ID: "0xe3ab324f137bf7107f5fa77c3b84b1"
+✅ Created account 61/70: "0xe3ab324f137bf7107f5fa77c3b84b1"
+Deployer account ID: "0xef0fd190e19eb41039632d34a4a672"
+✅ Created account 62/70: "0xef0fd190e19eb41039632d34a4a672"
+Deployer account ID: "0x43ea3bf630d2291058e2b36ebf0438"
+✅ Created account 63/70: "0x43ea3bf630d2291058e2b36ebf0438"
+Deployer account ID: "0x90869ec252a621103553b89712ee67"
+✅ Created account 64/70: "0x90869ec252a621103553b89712ee67"
+Deployer account ID: "0xc32e370ba60fd8106ce479fa46cc26"
+✅ Created account 65/70: "0xc32e370ba60fd8106ce479fa46cc26"
+Deployer account ID: "0x6ca1c5b7972afa101ec1070da2ef94"
+✅ Created account 66/70: "0x6ca1c5b7972afa101ec1070da2ef94"
+Deployer account ID: "0x1f2bb21de5fa32107484fa9db08d79"
+✅ Created account 67/70: "0x1f2bb21de5fa32107484fa9db08d79"
+Deployer account ID: "0x7cca7257fa4475107d90fbcbbf35df"
+✅ Created account 68/70: "0x7cca7257fa4475107d90fbcbbf35df"
+Deployer account ID: "0x965b642ca560e510652ec6ff2d6ca9"
+✅ Created account 69/70: "0x965b642ca560e510652ec6ff2d6ca9"
+Deployer account ID: "0x66802769e384521014a0c8c5e4f35d"
+✅ Created account 70/70: "0x66802769e384521014a0c8c5e4f35d"
+=================================================
+🎉 Successfully created all 70 accounts!
+
+[Deploying Fungible Faucet]
+=================================================
+Faucet account ID: "mdev1arzhsr27n6km5gzda977gpn5dgehcycz"
+Symbol: TRY, Decimals: 6, Max Supply: 100000000000000000
+=================================================
+✅ Faucet deployed successfully!
+
+[Funding Account]
+=================================================
+Funding account 1/70: "0x6b56ba8d045bb11032c3630deee22a"
+Funding TX request built.
+Transaction 0x4030d90769abbe7ff4f904c040ad47ef7a505a2302b0305ec117adf63d60625f not yet committed. Waiting...
+Transaction 0x4030d90769abbe7ff4f904c040ad47ef7a505a2302b0305ec117adf63d60625f not yet committed. Waiting...
+Transaction 0x4030d90769abbe7ff4f904c040ad47ef7a505a2302b0305ec117adf63d60625f not yet committed. Waiting...
+✅ transaction 0x4030d90769abbe7ff4f904c040ad47ef7a505a2302b0305ec117adf63d60625f committed
+✅ Submitted funding transaction: 0x4030d90769abbe7ff4f904c040ad47ef7a505a2302b0305ec117adf63d60625f 
+Account 1/70: "0x6b56ba8d045bb11032c3630deee22a"
+=================================================
+Funding account 2/70: "0x52fd3810733a691069b70b05fe7442"
+Funding TX request built.
+Transaction 0xa6d2b4d2d81c851036569596d4c1bbb595f67a02061cdf2a8ef1ef4404e8d142 not yet committed. Waiting...
+Transaction 0xa6d2b4d2d81c851036569596d4c1bbb595f67a02061cdf2a8ef1ef4404e8d142 not yet committed. Waiting...
+✅ transaction 0xa6d2b4d2d81c851036569596d4c1bbb595f67a02061cdf2a8ef1ef4404e8d142 committed
+✅ Submitted funding transaction: 0xa6d2b4d2d81c851036569596d4c1bbb595f67a02061cdf2a8ef1ef4404e8d142 
+Account 2/70: "0x52fd3810733a691069b70b05fe7442"
+=================================================
+Funding account 3/70: "0xc2728ef1d0631c104103cb05ab6468"
+Funding TX request built.
+Transaction 0x1c09890a4ba783f66b003fa2dc22a6ab47e7af218385247806e551b1dc6c9201 not yet committed. Waiting...
+Transaction 0x1c09890a4ba783f66b003fa2dc22a6ab47e7af218385247806e551b1dc6c9201 not yet committed. Waiting...
+✅ transaction 0x1c09890a4ba783f66b003fa2dc22a6ab47e7af218385247806e551b1dc6c9201 committed
+✅ Submitted funding transaction: 0x1c09890a4ba783f66b003fa2dc22a6ab47e7af218385247806e551b1dc6c9201 
+Account 3/70: "0xc2728ef1d0631c104103cb05ab6468"
+=================================================
+Funding account 4/70: "0x51769f0591d663106e8fcf347f1427"
+Funding TX request built.
+Transaction 0x38acc14868026e29a63af6b8f59f48c9079add5aab5cc80e4ce86e7f15f1bb17 not yet committed. Waiting...
+Transaction 0x38acc14868026e29a63af6b8f59f48c9079add5aab5cc80e4ce86e7f15f1bb17 not yet committed. Waiting...
+✅ transaction 0x38acc14868026e29a63af6b8f59f48c9079add5aab5cc80e4ce86e7f15f1bb17 committed
+✅ Submitted funding transaction: 0x38acc14868026e29a63af6b8f59f48c9079add5aab5cc80e4ce86e7f15f1bb17 
+Account 4/70: "0x51769f0591d663106e8fcf347f1427"
+=================================================
+Funding account 5/70: "0xcd8ee3fabbbd44101c8de05d051dfd"
+Funding TX request built.
+Transaction 0xe731eac3b070ebdd95c89f77edacf6245e0896d180e894abece4c9ef3745aa4f not yet committed. Waiting...
+✅ transaction 0xe731eac3b070ebdd95c89f77edacf6245e0896d180e894abece4c9ef3745aa4f committed
+✅ Submitted funding transaction: 0xe731eac3b070ebdd95c89f77edacf6245e0896d180e894abece4c9ef3745aa4f 
+Account 5/70: "0xcd8ee3fabbbd44101c8de05d051dfd"
+=================================================
+Funding account 6/70: "0x3f4a348d08bb20106d54ac6c6fe792"
+Funding TX request built.
+Transaction 0xfcca899960f9b75fb6fb6ddd522b82a44d82e4c00772a3a4b49ee7698c1b8163 not yet committed. Waiting...
+Transaction 0xfcca899960f9b75fb6fb6ddd522b82a44d82e4c00772a3a4b49ee7698c1b8163 not yet committed. Waiting...
+✅ transaction 0xfcca899960f9b75fb6fb6ddd522b82a44d82e4c00772a3a4b49ee7698c1b8163 committed
+✅ Submitted funding transaction: 0xfcca899960f9b75fb6fb6ddd522b82a44d82e4c00772a3a4b49ee7698c1b8163 
+Account 6/70: "0x3f4a348d08bb20106d54ac6c6fe792"
+=================================================
+Funding account 7/70: "0xf94b402fe212fd10424ec29c11b217"
+Funding TX request built.
+Transaction 0xb6e4b76bfa8b1721bf8e5290e0c65e2bcc476b34d5ba27e10c19bcdfdfee5335 not yet committed. Waiting...
+Transaction 0xb6e4b76bfa8b1721bf8e5290e0c65e2bcc476b34d5ba27e10c19bcdfdfee5335 not yet committed. Waiting...
+✅ transaction 0xb6e4b76bfa8b1721bf8e5290e0c65e2bcc476b34d5ba27e10c19bcdfdfee5335 committed
+✅ Submitted funding transaction: 0xb6e4b76bfa8b1721bf8e5290e0c65e2bcc476b34d5ba27e10c19bcdfdfee5335 
+Account 7/70: "0xf94b402fe212fd10424ec29c11b217"
+=================================================
+Funding account 8/70: "0x66195099a6be9410056b2fec68bfc4"
+Funding TX request built.
+Transaction 0xeb0ad192d49f33a8a42511437f79315d7124670d43a09f435461ca04593d4525 not yet committed. Waiting...
+Transaction 0xeb0ad192d49f33a8a42511437f79315d7124670d43a09f435461ca04593d4525 not yet committed. Waiting...
+✅ transaction 0xeb0ad192d49f33a8a42511437f79315d7124670d43a09f435461ca04593d4525 committed
+✅ Submitted funding transaction: 0xeb0ad192d49f33a8a42511437f79315d7124670d43a09f435461ca04593d4525 
+Account 8/70: "0x66195099a6be9410056b2fec68bfc4"
+=================================================
+Funding account 9/70: "0xcc8a33e3313aa5107e6a2f365117f0"
+Funding TX request built.
+Transaction 0xbb27b05f3dfe32ee8b016d68eb1a33efdc5142a68bb6be76adaaacbab0d8c954 not yet committed. Waiting...
+Transaction 0xbb27b05f3dfe32ee8b016d68eb1a33efdc5142a68bb6be76adaaacbab0d8c954 not yet committed. Waiting...
+✅ transaction 0xbb27b05f3dfe32ee8b016d68eb1a33efdc5142a68bb6be76adaaacbab0d8c954 committed
+✅ Submitted funding transaction: 0xbb27b05f3dfe32ee8b016d68eb1a33efdc5142a68bb6be76adaaacbab0d8c954 
+Account 9/70: "0xcc8a33e3313aa5107e6a2f365117f0"
+=================================================
+Funding account 10/70: "0xff659008dcff65101b649d13e411c6"
+Funding TX request built.
+Transaction 0xf39aefc921dd8135cc347df8b459182d4e5bf3ca31bb272993c4b184e30f5e75 not yet committed. Waiting...
+Transaction 0xf39aefc921dd8135cc347df8b459182d4e5bf3ca31bb272993c4b184e30f5e75 not yet committed. Waiting...
+✅ transaction 0xf39aefc921dd8135cc347df8b459182d4e5bf3ca31bb272993c4b184e30f5e75 committed
+✅ Submitted funding transaction: 0xf39aefc921dd8135cc347df8b459182d4e5bf3ca31bb272993c4b184e30f5e75 
+Account 10/70: "0xff659008dcff65101b649d13e411c6"
+=================================================
+Funding account 11/70: "0x777955c52dcf53106c62435fcbe585"
+Funding TX request built.
+Transaction 0x805b6261361100116a7655c05312f9e280a1b5e48ba88d8f361f39131f6705b8 not yet committed. Waiting...
+Transaction 0x805b6261361100116a7655c05312f9e280a1b5e48ba88d8f361f39131f6705b8 not yet committed. Waiting...
+✅ transaction 0x805b6261361100116a7655c05312f9e280a1b5e48ba88d8f361f39131f6705b8 committed
+✅ Submitted funding transaction: 0x805b6261361100116a7655c05312f9e280a1b5e48ba88d8f361f39131f6705b8 
+Account 11/70: "0x777955c52dcf53106c62435fcbe585"
+=================================================
+Funding account 12/70: "0x9aa750d252efdf1056981b02499904"
+Funding TX request built.
+Transaction 0xb6671dac9a435e7a52a4ba2358f293d207254c8510a58ccdddcfaab76def7ede not yet committed. Waiting...
+Transaction 0xb6671dac9a435e7a52a4ba2358f293d207254c8510a58ccdddcfaab76def7ede not yet committed. Waiting...
+✅ transaction 0xb6671dac9a435e7a52a4ba2358f293d207254c8510a58ccdddcfaab76def7ede committed
+✅ Submitted funding transaction: 0xb6671dac9a435e7a52a4ba2358f293d207254c8510a58ccdddcfaab76def7ede 
+Account 12/70: "0x9aa750d252efdf1056981b02499904"
+=================================================
+Funding account 13/70: "0x9090e1a85d93b1102c6ffb8af22dd4"
+Funding TX request built.
+Transaction 0x4ea0a1711d55aaf242aab7d938e475598985c015bfbab658e237bab2960bc02d not yet committed. Waiting...
+✅ transaction 0x4ea0a1711d55aaf242aab7d938e475598985c015bfbab658e237bab2960bc02d committed
+✅ Submitted funding transaction: 0x4ea0a1711d55aaf242aab7d938e475598985c015bfbab658e237bab2960bc02d 
+Account 13/70: "0x9090e1a85d93b1102c6ffb8af22dd4"
+=================================================
+Funding account 14/70: "0xc78d54f55e843d102632726b2fe122"
+Funding TX request built.
+Transaction 0x22d3b8e60c2e1c005041dc0add23d99c4d89459070f336c68f6c4eb4b7aa33ef not yet committed. Waiting...
+Transaction 0x22d3b8e60c2e1c005041dc0add23d99c4d89459070f336c68f6c4eb4b7aa33ef not yet committed. Waiting...
+✅ transaction 0x22d3b8e60c2e1c005041dc0add23d99c4d89459070f336c68f6c4eb4b7aa33ef committed
+✅ Submitted funding transaction: 0x22d3b8e60c2e1c005041dc0add23d99c4d89459070f336c68f6c4eb4b7aa33ef 
+Account 14/70: "0xc78d54f55e843d102632726b2fe122"
+=================================================
+Funding account 15/70: "0x3e97b9240ec8fb106f3c0a5eadc18e"
+Funding TX request built.
+Transaction 0xbf0545d1d1da154142b7726f84dc21c3f5239e651fa6ea94599531a899f54ddc not yet committed. Waiting...
+Transaction 0xbf0545d1d1da154142b7726f84dc21c3f5239e651fa6ea94599531a899f54ddc not yet committed. Waiting...
+✅ transaction 0xbf0545d1d1da154142b7726f84dc21c3f5239e651fa6ea94599531a899f54ddc committed
+✅ Submitted funding transaction: 0xbf0545d1d1da154142b7726f84dc21c3f5239e651fa6ea94599531a899f54ddc 
+Account 15/70: "0x3e97b9240ec8fb106f3c0a5eadc18e"
+=================================================
+Funding account 16/70: "0x482be38adf2e881016f23c8503ed84"
+Funding TX request built.
+Transaction 0x43c0d752abe1111ee8cf9cf8e55747225906c22194e3a7d79906467f1c421ac7 not yet committed. Waiting...
+Transaction 0x43c0d752abe1111ee8cf9cf8e55747225906c22194e3a7d79906467f1c421ac7 not yet committed. Waiting...
+✅ transaction 0x43c0d752abe1111ee8cf9cf8e55747225906c22194e3a7d79906467f1c421ac7 committed
+✅ Submitted funding transaction: 0x43c0d752abe1111ee8cf9cf8e55747225906c22194e3a7d79906467f1c421ac7 
+Account 16/70: "0x482be38adf2e881016f23c8503ed84"
+=================================================
+Funding account 17/70: "0xff0c9c53e1ea6a102b0b137227720a"
+Funding TX request built.
+Transaction 0x3dcb4e78e253fa8aef4f8690838d7909898216ae8d6131ad9d8a2f264d0f6ff5 not yet committed. Waiting...
+Transaction 0x3dcb4e78e253fa8aef4f8690838d7909898216ae8d6131ad9d8a2f264d0f6ff5 not yet committed. Waiting...
+✅ transaction 0x3dcb4e78e253fa8aef4f8690838d7909898216ae8d6131ad9d8a2f264d0f6ff5 committed
+✅ Submitted funding transaction: 0x3dcb4e78e253fa8aef4f8690838d7909898216ae8d6131ad9d8a2f264d0f6ff5 
+Account 17/70: "0xff0c9c53e1ea6a102b0b137227720a"
+=================================================
+Funding account 18/70: "0x5692814660f155104ca792ef66368e"
+Funding TX request built.
+Transaction 0xaee965001ec897457ed4660510f5aa087c44c8ef6cd34b3995bcf31f29037d4a not yet committed. Waiting...
+Transaction 0xaee965001ec897457ed4660510f5aa087c44c8ef6cd34b3995bcf31f29037d4a not yet committed. Waiting...
+✅ transaction 0xaee965001ec897457ed4660510f5aa087c44c8ef6cd34b3995bcf31f29037d4a committed
+✅ Submitted funding transaction: 0xaee965001ec897457ed4660510f5aa087c44c8ef6cd34b3995bcf31f29037d4a 
+Account 18/70: "0x5692814660f155104ca792ef66368e"
+=================================================
+Funding account 19/70: "0x5a6e1a3500e870105ba5f0f18c5623"
+Funding TX request built.
+Transaction 0xe3f59fa2a41b1de136ebca63e7bd40273918c2cf846139ef132c3bbe0abb8fd4 not yet committed. Waiting...
+Transaction 0xe3f59fa2a41b1de136ebca63e7bd40273918c2cf846139ef132c3bbe0abb8fd4 not yet committed. Waiting...
+✅ transaction 0xe3f59fa2a41b1de136ebca63e7bd40273918c2cf846139ef132c3bbe0abb8fd4 committed
+✅ Submitted funding transaction: 0xe3f59fa2a41b1de136ebca63e7bd40273918c2cf846139ef132c3bbe0abb8fd4 
+Account 19/70: "0x5a6e1a3500e870105ba5f0f18c5623"
+=================================================
+Funding account 20/70: "0x1ef5ba5cf3c0b7107c70266bbe2d9b"
+Funding TX request built.
+Transaction 0x6a5764693eab813afa13671a829703a6beec5e6d8e5bb622a1738274cef9e4b4 not yet committed. Waiting...
+✅ transaction 0x6a5764693eab813afa13671a829703a6beec5e6d8e5bb622a1738274cef9e4b4 committed
+✅ Submitted funding transaction: 0x6a5764693eab813afa13671a829703a6beec5e6d8e5bb622a1738274cef9e4b4 
+Account 20/70: "0x1ef5ba5cf3c0b7107c70266bbe2d9b"
+=================================================
+Funding account 21/70: "0xfbf13e55bc5ca1102505daede89960"
+Funding TX request built.
+Transaction 0xeed3d39cca254e0949917bbd7e01516cb38b34ac9ff25cc16753cd2b886a5bef not yet committed. Waiting...
+Transaction 0xeed3d39cca254e0949917bbd7e01516cb38b34ac9ff25cc16753cd2b886a5bef not yet committed. Waiting...
+✅ transaction 0xeed3d39cca254e0949917bbd7e01516cb38b34ac9ff25cc16753cd2b886a5bef committed
+✅ Submitted funding transaction: 0xeed3d39cca254e0949917bbd7e01516cb38b34ac9ff25cc16753cd2b886a5bef 
+Account 21/70: "0xfbf13e55bc5ca1102505daede89960"
+=================================================
+Funding account 22/70: "0x9bbde443222db91016468192831ad6"
+Funding TX request built.
+Transaction 0xaebda423ad00cfefe01e7bc88dea1ac122bada3868ec0c4117849c9ffc475f4e not yet committed. Waiting...
+Transaction 0xaebda423ad00cfefe01e7bc88dea1ac122bada3868ec0c4117849c9ffc475f4e not yet committed. Waiting...
+✅ transaction 0xaebda423ad00cfefe01e7bc88dea1ac122bada3868ec0c4117849c9ffc475f4e committed
+✅ Submitted funding transaction: 0xaebda423ad00cfefe01e7bc88dea1ac122bada3868ec0c4117849c9ffc475f4e 
+Account 22/70: "0x9bbde443222db91016468192831ad6"
+=================================================
+Funding account 23/70: "0xa2ea535d4a9f76105cf7fd4a1491d1"
+Funding TX request built.
+Transaction 0x90afc6de3b4d479a5268f60486d047260bf325a705a93977571e63b40c76c17e not yet committed. Waiting...
+Transaction 0x90afc6de3b4d479a5268f60486d047260bf325a705a93977571e63b40c76c17e not yet committed. Waiting...
+✅ transaction 0x90afc6de3b4d479a5268f60486d047260bf325a705a93977571e63b40c76c17e committed
+✅ Submitted funding transaction: 0x90afc6de3b4d479a5268f60486d047260bf325a705a93977571e63b40c76c17e 
+Account 23/70: "0xa2ea535d4a9f76105cf7fd4a1491d1"
+=================================================
+Funding account 24/70: "0x6cf519f73e922110452c8b2f5f995d"
+Funding TX request built.
+Transaction 0x2e75c900ff456083f8773f4cb637596b2da0d556062300d41981b2d316518d03 not yet committed. Waiting...
+✅ transaction 0x2e75c900ff456083f8773f4cb637596b2da0d556062300d41981b2d316518d03 committed
+✅ Submitted funding transaction: 0x2e75c900ff456083f8773f4cb637596b2da0d556062300d41981b2d316518d03 
+Account 24/70: "0x6cf519f73e922110452c8b2f5f995d"
+=================================================
+Funding account 25/70: "0x67527c942ad121102f7ca975683a35"
+Funding TX request built.
+Transaction 0x5fa3eabeaaa1d63cb58104d33a5f341d840b35ec71bd9e76a88a15533d82d11f not yet committed. Waiting...
+Transaction 0x5fa3eabeaaa1d63cb58104d33a5f341d840b35ec71bd9e76a88a15533d82d11f not yet committed. Waiting...
+✅ transaction 0x5fa3eabeaaa1d63cb58104d33a5f341d840b35ec71bd9e76a88a15533d82d11f committed
+✅ Submitted funding transaction: 0x5fa3eabeaaa1d63cb58104d33a5f341d840b35ec71bd9e76a88a15533d82d11f 
+Account 25/70: "0x67527c942ad121102f7ca975683a35"
+=================================================
+Funding account 26/70: "0xa23ff064db9e84104283c755961b09"
+Funding TX request built.
+Transaction 0x5a016227e6fdff1183cf6374cf7adb38e4b6c04725177a333a95107226f8e605 not yet committed. Waiting...
+✅ transaction 0x5a016227e6fdff1183cf6374cf7adb38e4b6c04725177a333a95107226f8e605 committed
+✅ Submitted funding transaction: 0x5a016227e6fdff1183cf6374cf7adb38e4b6c04725177a333a95107226f8e605 
+Account 26/70: "0xa23ff064db9e84104283c755961b09"
+=================================================
+Funding account 27/70: "0x22690fcb85288b1041813dda8285c3"
+Funding TX request built.
+Transaction 0x194d5152023444beaaa8e64926533f198cc1571fde9925c8050b4604e552793d not yet committed. Waiting...
+Transaction 0x194d5152023444beaaa8e64926533f198cc1571fde9925c8050b4604e552793d not yet committed. Waiting...
+✅ transaction 0x194d5152023444beaaa8e64926533f198cc1571fde9925c8050b4604e552793d committed
+✅ Submitted funding transaction: 0x194d5152023444beaaa8e64926533f198cc1571fde9925c8050b4604e552793d 
+Account 27/70: "0x22690fcb85288b1041813dda8285c3"
+=================================================
+Funding account 28/70: "0xd4de91c2a7b40c103c5f54740a8763"
+Funding TX request built.
+Transaction 0xe869fea8498705369effc63349ff96b34878ad7c2a0ac468d28c711b2e3edc34 not yet committed. Waiting...
+Transaction 0xe869fea8498705369effc63349ff96b34878ad7c2a0ac468d28c711b2e3edc34 not yet committed. Waiting...
+✅ transaction 0xe869fea8498705369effc63349ff96b34878ad7c2a0ac468d28c711b2e3edc34 committed
+✅ Submitted funding transaction: 0xe869fea8498705369effc63349ff96b34878ad7c2a0ac468d28c711b2e3edc34 
+Account 28/70: "0xd4de91c2a7b40c103c5f54740a8763"
+=================================================
+Funding account 29/70: "0x59e7538b2181eb1025feb88d27f98d"
+Funding TX request built.
+Transaction 0x9eeed694a668fd6da70a3b2af4d3a00d6a67653a9dd2dc5148e3177e0954a09f not yet committed. Waiting...
+Transaction 0x9eeed694a668fd6da70a3b2af4d3a00d6a67653a9dd2dc5148e3177e0954a09f not yet committed. Waiting...
+✅ transaction 0x9eeed694a668fd6da70a3b2af4d3a00d6a67653a9dd2dc5148e3177e0954a09f committed
+✅ Submitted funding transaction: 0x9eeed694a668fd6da70a3b2af4d3a00d6a67653a9dd2dc5148e3177e0954a09f 
+Account 29/70: "0x59e7538b2181eb1025feb88d27f98d"
+=================================================
+Funding account 30/70: "0xf6180dd9353bf11028157d436e12e1"
+Funding TX request built.
+Transaction 0x6cc2e5d810267ce5bd29fc5b22817691f438a7e1a564539a0fde364297933d5c not yet committed. Waiting...
+Transaction 0x6cc2e5d810267ce5bd29fc5b22817691f438a7e1a564539a0fde364297933d5c not yet committed. Waiting...
+✅ transaction 0x6cc2e5d810267ce5bd29fc5b22817691f438a7e1a564539a0fde364297933d5c committed
+✅ Submitted funding transaction: 0x6cc2e5d810267ce5bd29fc5b22817691f438a7e1a564539a0fde364297933d5c 
+Account 30/70: "0xf6180dd9353bf11028157d436e12e1"
+=================================================
+Funding account 31/70: "0x42f6ad0fe161d41015c3e3c5021398"
+Funding TX request built.
+Transaction 0x19258d3c5029b87c5cf64c391b05fc2a37149fcd3f72f91ccd9fdb2e5212e12b not yet committed. Waiting...
+✅ transaction 0x19258d3c5029b87c5cf64c391b05fc2a37149fcd3f72f91ccd9fdb2e5212e12b committed
+✅ Submitted funding transaction: 0x19258d3c5029b87c5cf64c391b05fc2a37149fcd3f72f91ccd9fdb2e5212e12b 
+Account 31/70: "0x42f6ad0fe161d41015c3e3c5021398"
+=================================================
+Funding account 32/70: "0x0d141ce4f0da24102d18e36fca384f"
+Funding TX request built.
+Transaction 0xf3400186797eff11d867c48d2fcc59ce90d85f5f753d383807b2d0561ef97475 not yet committed. Waiting...
+Transaction 0xf3400186797eff11d867c48d2fcc59ce90d85f5f753d383807b2d0561ef97475 not yet committed. Waiting...
+✅ transaction 0xf3400186797eff11d867c48d2fcc59ce90d85f5f753d383807b2d0561ef97475 committed
+✅ Submitted funding transaction: 0xf3400186797eff11d867c48d2fcc59ce90d85f5f753d383807b2d0561ef97475 
+Account 32/70: "0x0d141ce4f0da24102d18e36fca384f"
+=================================================
+Funding account 33/70: "0x520c1af83b0a4b1042a1464a4de126"
+Funding TX request built.
+Transaction 0x2add6a9ed43b87bd72a819595471db74a198c8532d0da1f99732822207e14845 not yet committed. Waiting...
+Transaction 0x2add6a9ed43b87bd72a819595471db74a198c8532d0da1f99732822207e14845 not yet committed. Waiting...
+✅ transaction 0x2add6a9ed43b87bd72a819595471db74a198c8532d0da1f99732822207e14845 committed
+✅ Submitted funding transaction: 0x2add6a9ed43b87bd72a819595471db74a198c8532d0da1f99732822207e14845 
+Account 33/70: "0x520c1af83b0a4b1042a1464a4de126"
+=================================================
+Funding account 34/70: "0x65960575c0aa49105b53f3096a6d21"
+Funding TX request built.
+Transaction 0xeeda4ff4f6f4e6b7af8bec10226e0313830b680597483efc284ac6d2dae7704e not yet committed. Waiting...
+Transaction 0xeeda4ff4f6f4e6b7af8bec10226e0313830b680597483efc284ac6d2dae7704e not yet committed. Waiting...
+✅ transaction 0xeeda4ff4f6f4e6b7af8bec10226e0313830b680597483efc284ac6d2dae7704e committed
+✅ Submitted funding transaction: 0xeeda4ff4f6f4e6b7af8bec10226e0313830b680597483efc284ac6d2dae7704e 
+Account 34/70: "0x65960575c0aa49105b53f3096a6d21"
+=================================================
+Funding account 35/70: "0x569b259860c61f103e88128c5a8986"
+Funding TX request built.
+Transaction 0x8e5eeb3743293bf58ac2e964e7fe946d8ccfcb35ac89c7e8e7730c7fe868c121 not yet committed. Waiting...
+✅ transaction 0x8e5eeb3743293bf58ac2e964e7fe946d8ccfcb35ac89c7e8e7730c7fe868c121 committed
+✅ Submitted funding transaction: 0x8e5eeb3743293bf58ac2e964e7fe946d8ccfcb35ac89c7e8e7730c7fe868c121 
+Account 35/70: "0x569b259860c61f103e88128c5a8986"
+=================================================
+Funding account 36/70: "0x956353845eced6106a3bce8bb8b006"
+Funding TX request built.
+Transaction 0x009662efb69b63cb115da9b3c4dd3f1714ce1344fbbe6340da1b3538516138d3 not yet committed. Waiting...
+Transaction 0x009662efb69b63cb115da9b3c4dd3f1714ce1344fbbe6340da1b3538516138d3 not yet committed. Waiting...
+✅ transaction 0x009662efb69b63cb115da9b3c4dd3f1714ce1344fbbe6340da1b3538516138d3 committed
+✅ Submitted funding transaction: 0x009662efb69b63cb115da9b3c4dd3f1714ce1344fbbe6340da1b3538516138d3 
+Account 36/70: "0x956353845eced6106a3bce8bb8b006"
+=================================================
+Funding account 37/70: "0x523d2480a165aa101b6926de64b6f7"
+Funding TX request built.
+Transaction 0x46e9753ce222b1a27f34328302f24eb988956e7edb45017c027a7e662e42bdb4 not yet committed. Waiting...
+Transaction 0x46e9753ce222b1a27f34328302f24eb988956e7edb45017c027a7e662e42bdb4 not yet committed. Waiting...
+✅ transaction 0x46e9753ce222b1a27f34328302f24eb988956e7edb45017c027a7e662e42bdb4 committed
+✅ Submitted funding transaction: 0x46e9753ce222b1a27f34328302f24eb988956e7edb45017c027a7e662e42bdb4 
+Account 37/70: "0x523d2480a165aa101b6926de64b6f7"
+=================================================
+Funding account 38/70: "0x24f36d4036885e106640d1e49d3148"
+Funding TX request built.
+Transaction 0xd95cc357fe7092d9a2ef1b64dc7574eb50cb1a42c88332d17ced825e24b19220 not yet committed. Waiting...
+✅ transaction 0xd95cc357fe7092d9a2ef1b64dc7574eb50cb1a42c88332d17ced825e24b19220 committed
+✅ Submitted funding transaction: 0xd95cc357fe7092d9a2ef1b64dc7574eb50cb1a42c88332d17ced825e24b19220 
+Account 38/70: "0x24f36d4036885e106640d1e49d3148"
+=================================================
+Funding account 39/70: "0xebfe997f9bbb0a100156968b97565f"
+Funding TX request built.
+Transaction 0xd83211ed4600e1c568c4f1a98bded3938c814290bd083497fd48ac6525052d41 not yet committed. Waiting...
+Transaction 0xd83211ed4600e1c568c4f1a98bded3938c814290bd083497fd48ac6525052d41 not yet committed. Waiting...
+✅ transaction 0xd83211ed4600e1c568c4f1a98bded3938c814290bd083497fd48ac6525052d41 committed
+✅ Submitted funding transaction: 0xd83211ed4600e1c568c4f1a98bded3938c814290bd083497fd48ac6525052d41 
+Account 39/70: "0xebfe997f9bbb0a100156968b97565f"
+=================================================
+Funding account 40/70: "0x25885b0c6d5a87106ee8c8b4ae4081"
+Funding TX request built.
+Transaction 0x522f139365d91ffb01276ac5a4a3dbd0f31b8855f7939827ffaea7950cb4bcf2 not yet committed. Waiting...
+Transaction 0x522f139365d91ffb01276ac5a4a3dbd0f31b8855f7939827ffaea7950cb4bcf2 not yet committed. Waiting...
+✅ transaction 0x522f139365d91ffb01276ac5a4a3dbd0f31b8855f7939827ffaea7950cb4bcf2 committed
+✅ Submitted funding transaction: 0x522f139365d91ffb01276ac5a4a3dbd0f31b8855f7939827ffaea7950cb4bcf2 
+Account 40/70: "0x25885b0c6d5a87106ee8c8b4ae4081"
+=================================================
+Funding account 41/70: "0x9d1a3018ddfb4d102ab3cdd97f2705"
+Funding TX request built.
+Transaction 0x99ec0b43310e3887552f6c905b25033fa9a3e896317524e876aa39503e210bc0 not yet committed. Waiting...
+✅ transaction 0x99ec0b43310e3887552f6c905b25033fa9a3e896317524e876aa39503e210bc0 committed
+✅ Submitted funding transaction: 0x99ec0b43310e3887552f6c905b25033fa9a3e896317524e876aa39503e210bc0 
+Account 41/70: "0x9d1a3018ddfb4d102ab3cdd97f2705"
+=================================================
+Funding account 42/70: "0x06673e3ce03f4d1042f110a759772b"
+Funding TX request built.
+Transaction 0xd8a19e904c36e7b3f49c81ad2e1d244686e976e5fa6a02e44f77d18b575c8e37 not yet committed. Waiting...
+Transaction 0xd8a19e904c36e7b3f49c81ad2e1d244686e976e5fa6a02e44f77d18b575c8e37 not yet committed. Waiting...
+✅ transaction 0xd8a19e904c36e7b3f49c81ad2e1d244686e976e5fa6a02e44f77d18b575c8e37 committed
+✅ Submitted funding transaction: 0xd8a19e904c36e7b3f49c81ad2e1d244686e976e5fa6a02e44f77d18b575c8e37 
+Account 42/70: "0x06673e3ce03f4d1042f110a759772b"
+=================================================
+Funding account 43/70: "0xb105f633c459581048a79048185edd"
+Funding TX request built.
+Transaction 0x6e7e776d3f8c9bf34ea8044b62e2ff89716e5e845137d817470c3daf1e2080b5 not yet committed. Waiting...
+Transaction 0x6e7e776d3f8c9bf34ea8044b62e2ff89716e5e845137d817470c3daf1e2080b5 not yet committed. Waiting...
+✅ transaction 0x6e7e776d3f8c9bf34ea8044b62e2ff89716e5e845137d817470c3daf1e2080b5 committed
+✅ Submitted funding transaction: 0x6e7e776d3f8c9bf34ea8044b62e2ff89716e5e845137d817470c3daf1e2080b5 
+Account 43/70: "0xb105f633c459581048a79048185edd"
+=================================================
+Funding account 44/70: "0x9953280859f4c0100720bd6e9a411e"
+Funding TX request built.
+Transaction 0xc0d75386a9fe35a2bf1b41fe2c9ee03efd1142037f12456d19ad4007a69adae6 not yet committed. Waiting...
+✅ transaction 0xc0d75386a9fe35a2bf1b41fe2c9ee03efd1142037f12456d19ad4007a69adae6 committed
+✅ Submitted funding transaction: 0xc0d75386a9fe35a2bf1b41fe2c9ee03efd1142037f12456d19ad4007a69adae6 
+Account 44/70: "0x9953280859f4c0100720bd6e9a411e"
+=================================================
+Funding account 45/70: "0x998935077856961028aeebaa06072b"
+Funding TX request built.
+Transaction 0x39be1c8f252b1b615c0a3a3978a0094f5682a2a6b0c344df06c968bc915fd25a not yet committed. Waiting...
+Transaction 0x39be1c8f252b1b615c0a3a3978a0094f5682a2a6b0c344df06c968bc915fd25a not yet committed. Waiting...
+✅ transaction 0x39be1c8f252b1b615c0a3a3978a0094f5682a2a6b0c344df06c968bc915fd25a committed
+✅ Submitted funding transaction: 0x39be1c8f252b1b615c0a3a3978a0094f5682a2a6b0c344df06c968bc915fd25a 
+Account 45/70: "0x998935077856961028aeebaa06072b"
+=================================================
+Funding account 46/70: "0x91af1ba1be0573104b801efbc33ef4"
+Funding TX request built.
+Transaction 0x479dd93ee3ddb757a47ea0cb65f98015ad719b3bf3d76cc0be47d6d3634a0612 not yet committed. Waiting...
+Transaction 0x479dd93ee3ddb757a47ea0cb65f98015ad719b3bf3d76cc0be47d6d3634a0612 not yet committed. Waiting...
+✅ transaction 0x479dd93ee3ddb757a47ea0cb65f98015ad719b3bf3d76cc0be47d6d3634a0612 committed
+✅ Submitted funding transaction: 0x479dd93ee3ddb757a47ea0cb65f98015ad719b3bf3d76cc0be47d6d3634a0612 
+Account 46/70: "0x91af1ba1be0573104b801efbc33ef4"
+=================================================
+Funding account 47/70: "0x5b4714937fe1531044fc0c22694195"
+Funding TX request built.
+Transaction 0xc97023a402ef363674eadf59b121c3624ba69e5de61168f0ce2699f5d228ced0 not yet committed. Waiting...
+Transaction 0xc97023a402ef363674eadf59b121c3624ba69e5de61168f0ce2699f5d228ced0 not yet committed. Waiting...
+✅ transaction 0xc97023a402ef363674eadf59b121c3624ba69e5de61168f0ce2699f5d228ced0 committed
+✅ Submitted funding transaction: 0xc97023a402ef363674eadf59b121c3624ba69e5de61168f0ce2699f5d228ced0 
+Account 47/70: "0x5b4714937fe1531044fc0c22694195"
+=================================================
+Funding account 48/70: "0xc55c2950b57a0a1017346eb975ab9a"
+Funding TX request built.
+Transaction 0xdb97805fa7de208b0a2a4ccc44429a6494ef51f9100420382703fd0a40feda72 not yet committed. Waiting...
+✅ transaction 0xdb97805fa7de208b0a2a4ccc44429a6494ef51f9100420382703fd0a40feda72 committed
+✅ Submitted funding transaction: 0xdb97805fa7de208b0a2a4ccc44429a6494ef51f9100420382703fd0a40feda72 
+Account 48/70: "0xc55c2950b57a0a1017346eb975ab9a"
+=================================================
+Funding account 49/70: "0xe4790a400a9286102bccced4b47421"
+Funding TX request built.
+Transaction 0x8dbb6bd7724b0a294d8661483ba0918954c891b7a4f42e5e7577dcb4abba2a8f not yet committed. Waiting...
+Transaction 0x8dbb6bd7724b0a294d8661483ba0918954c891b7a4f42e5e7577dcb4abba2a8f not yet committed. Waiting...
+✅ transaction 0x8dbb6bd7724b0a294d8661483ba0918954c891b7a4f42e5e7577dcb4abba2a8f committed
+✅ Submitted funding transaction: 0x8dbb6bd7724b0a294d8661483ba0918954c891b7a4f42e5e7577dcb4abba2a8f 
+Account 49/70: "0xe4790a400a9286102bccced4b47421"
+=================================================
+Funding account 50/70: "0x74e5bbc7cba14110144fbbc98f7c01"
+Funding TX request built.
+Transaction 0x5cbf31445edd8b1de74881670a53c92b0dcf8cd337ab6793f342b9962f9316ef not yet committed. Waiting...
+Transaction 0x5cbf31445edd8b1de74881670a53c92b0dcf8cd337ab6793f342b9962f9316ef not yet committed. Waiting...
+✅ transaction 0x5cbf31445edd8b1de74881670a53c92b0dcf8cd337ab6793f342b9962f9316ef committed
+✅ Submitted funding transaction: 0x5cbf31445edd8b1de74881670a53c92b0dcf8cd337ab6793f342b9962f9316ef 
+Account 50/70: "0x74e5bbc7cba14110144fbbc98f7c01"
+=================================================
+Funding account 51/70: "0x0f1dba56e20194101677b54713d9f9"
+Funding TX request built.
+Transaction 0x7117e28ab68badd76ec1760ae9ae92a04652ff79c513938181613964b348b349 not yet committed. Waiting...
+✅ transaction 0x7117e28ab68badd76ec1760ae9ae92a04652ff79c513938181613964b348b349 committed
+✅ Submitted funding transaction: 0x7117e28ab68badd76ec1760ae9ae92a04652ff79c513938181613964b348b349 
+Account 51/70: "0x0f1dba56e20194101677b54713d9f9"
+=================================================
+Funding account 52/70: "0xb5cfa9e7cc3fb41019f372566c4540"
+Funding TX request built.
+Transaction 0x8c2678e7167cd73eb9666c528c1fc19d21d1ff53921ed8938362a62fb3f7bb06 not yet committed. Waiting...
+Transaction 0x8c2678e7167cd73eb9666c528c1fc19d21d1ff53921ed8938362a62fb3f7bb06 not yet committed. Waiting...
+✅ transaction 0x8c2678e7167cd73eb9666c528c1fc19d21d1ff53921ed8938362a62fb3f7bb06 committed
+✅ Submitted funding transaction: 0x8c2678e7167cd73eb9666c528c1fc19d21d1ff53921ed8938362a62fb3f7bb06 
+Account 52/70: "0xb5cfa9e7cc3fb41019f372566c4540"
+=================================================
+Funding account 53/70: "0xae4929cb2e2c6f1014891f6926b9da"
+Funding TX request built.
+Transaction 0x7d2dc799f57adbdd373311b99ab84a95e7227ccd3e0e02e2e221e68cbc47d564 not yet committed. Waiting...
+Transaction 0x7d2dc799f57adbdd373311b99ab84a95e7227ccd3e0e02e2e221e68cbc47d564 not yet committed. Waiting...
+✅ transaction 0x7d2dc799f57adbdd373311b99ab84a95e7227ccd3e0e02e2e221e68cbc47d564 committed
+✅ Submitted funding transaction: 0x7d2dc799f57adbdd373311b99ab84a95e7227ccd3e0e02e2e221e68cbc47d564 
+Account 53/70: "0xae4929cb2e2c6f1014891f6926b9da"
+=================================================
+Funding account 54/70: "0x512fa8a44cd1b8105b68832de13467"
+Funding TX request built.
+Transaction 0x832f73a3adb88a41e4d72c6e8c19d8c383f51bebd50b7a1b553d59a6b713a5fd not yet committed. Waiting...
+Transaction 0x832f73a3adb88a41e4d72c6e8c19d8c383f51bebd50b7a1b553d59a6b713a5fd not yet committed. Waiting...
+✅ transaction 0x832f73a3adb88a41e4d72c6e8c19d8c383f51bebd50b7a1b553d59a6b713a5fd committed
+✅ Submitted funding transaction: 0x832f73a3adb88a41e4d72c6e8c19d8c383f51bebd50b7a1b553d59a6b713a5fd 
+Account 54/70: "0x512fa8a44cd1b8105b68832de13467"
+=================================================
+Funding account 55/70: "0x2b7856af25cc7c102774dfe8742071"
+Funding TX request built.
+Transaction 0x002e8ad7e25a6ace35eff97cfb0ad8b9e062ae5c9bb5289957028d877aa4a558 not yet committed. Waiting...
+✅ transaction 0x002e8ad7e25a6ace35eff97cfb0ad8b9e062ae5c9bb5289957028d877aa4a558 committed
+✅ Submitted funding transaction: 0x002e8ad7e25a6ace35eff97cfb0ad8b9e062ae5c9bb5289957028d877aa4a558 
+Account 55/70: "0x2b7856af25cc7c102774dfe8742071"
+=================================================
+Funding account 56/70: "0x462c9cf971bfd010245c103324f748"
+Funding TX request built.
+Transaction 0x64f8bd0b307690166a10d54aaf28a128c4e268acb711b3225449a95563b2330c not yet committed. Waiting...
+Transaction 0x64f8bd0b307690166a10d54aaf28a128c4e268acb711b3225449a95563b2330c not yet committed. Waiting...
+✅ transaction 0x64f8bd0b307690166a10d54aaf28a128c4e268acb711b3225449a95563b2330c committed
+✅ Submitted funding transaction: 0x64f8bd0b307690166a10d54aaf28a128c4e268acb711b3225449a95563b2330c 
+Account 56/70: "0x462c9cf971bfd010245c103324f748"
+=================================================
+Funding account 57/70: "0xe97efaeb5f3c401053e081d32481ca"
+Funding TX request built.
+Transaction 0xe1f3ab5bf6c2fcdd109ccc0bfd12f0cdee3c02a9f7b8fa0de8a727d83e720315 not yet committed. Waiting...
+Transaction 0xe1f3ab5bf6c2fcdd109ccc0bfd12f0cdee3c02a9f7b8fa0de8a727d83e720315 not yet committed. Waiting...
+✅ transaction 0xe1f3ab5bf6c2fcdd109ccc0bfd12f0cdee3c02a9f7b8fa0de8a727d83e720315 committed
+✅ Submitted funding transaction: 0xe1f3ab5bf6c2fcdd109ccc0bfd12f0cdee3c02a9f7b8fa0de8a727d83e720315 
+Account 57/70: "0xe97efaeb5f3c401053e081d32481ca"
+=================================================
+Funding account 58/70: "0xe2f460f30b71d6105d5deba35b5f9b"
+Funding TX request built.
+Transaction 0x3ed5e0302fe437bc85d9eee25a7ab90f953e407658b13df4e27bae9078116e4a not yet committed. Waiting...
+Transaction 0x3ed5e0302fe437bc85d9eee25a7ab90f953e407658b13df4e27bae9078116e4a not yet committed. Waiting...
+✅ transaction 0x3ed5e0302fe437bc85d9eee25a7ab90f953e407658b13df4e27bae9078116e4a committed
+✅ Submitted funding transaction: 0x3ed5e0302fe437bc85d9eee25a7ab90f953e407658b13df4e27bae9078116e4a 
+Account 58/70: "0xe2f460f30b71d6105d5deba35b5f9b"
+=================================================
+Funding account 59/70: "0x936b253b36d7c5104389c76d5e5914"
+Funding TX request built.
+Transaction 0xe7a1366f175ec65cf7b88562d1e98f0dc2f31b9d3f50f20860b37a31c2024758 not yet committed. Waiting...
+✅ transaction 0xe7a1366f175ec65cf7b88562d1e98f0dc2f31b9d3f50f20860b37a31c2024758 committed
+✅ Submitted funding transaction: 0xe7a1366f175ec65cf7b88562d1e98f0dc2f31b9d3f50f20860b37a31c2024758 
+Account 59/70: "0x936b253b36d7c5104389c76d5e5914"
+=================================================
+Funding account 60/70: "0x88981c2a08f1f5107625c1b227b633"
+Funding TX request built.
+Transaction 0x19944746c87daafdf5bf7519e01cc481def3783fc249f031f506fdaa2659c9c7 not yet committed. Waiting...
+Transaction 0x19944746c87daafdf5bf7519e01cc481def3783fc249f031f506fdaa2659c9c7 not yet committed. Waiting...
+✅ transaction 0x19944746c87daafdf5bf7519e01cc481def3783fc249f031f506fdaa2659c9c7 committed
+✅ Submitted funding transaction: 0x19944746c87daafdf5bf7519e01cc481def3783fc249f031f506fdaa2659c9c7 
+Account 60/70: "0x88981c2a08f1f5107625c1b227b633"
+=================================================
+Funding account 61/70: "0xe3ab324f137bf7107f5fa77c3b84b1"
+Funding TX request built.
+Transaction 0xf5df12f1f44c3b4b7fce833234b7d08444102fce493bd9276ee64c5574e6538a not yet committed. Waiting...
+Transaction 0xf5df12f1f44c3b4b7fce833234b7d08444102fce493bd9276ee64c5574e6538a not yet committed. Waiting...
+✅ transaction 0xf5df12f1f44c3b4b7fce833234b7d08444102fce493bd9276ee64c5574e6538a committed
+✅ Submitted funding transaction: 0xf5df12f1f44c3b4b7fce833234b7d08444102fce493bd9276ee64c5574e6538a 
+Account 61/70: "0xe3ab324f137bf7107f5fa77c3b84b1"
+=================================================
+Funding account 62/70: "0xef0fd190e19eb41039632d34a4a672"
+Funding TX request built.
+Transaction 0x3cffce0fdbac12e8b22537af5f6ee149d6c1d548fc00eb367b1c47f17e825cfb not yet committed. Waiting...
+✅ transaction 0x3cffce0fdbac12e8b22537af5f6ee149d6c1d548fc00eb367b1c47f17e825cfb committed
+✅ Submitted funding transaction: 0x3cffce0fdbac12e8b22537af5f6ee149d6c1d548fc00eb367b1c47f17e825cfb 
+Account 62/70: "0xef0fd190e19eb41039632d34a4a672"
+=================================================
+Funding account 63/70: "0x43ea3bf630d2291058e2b36ebf0438"
+Funding TX request built.
+Transaction 0x8e51948081e2a389bfad9650195507e5072a20f3d03f6d4da7b1a338efe59a49 not yet committed. Waiting...
+Transaction 0x8e51948081e2a389bfad9650195507e5072a20f3d03f6d4da7b1a338efe59a49 not yet committed. Waiting...
+✅ transaction 0x8e51948081e2a389bfad9650195507e5072a20f3d03f6d4da7b1a338efe59a49 committed
+✅ Submitted funding transaction: 0x8e51948081e2a389bfad9650195507e5072a20f3d03f6d4da7b1a338efe59a49 
+Account 63/70: "0x43ea3bf630d2291058e2b36ebf0438"
+=================================================
+Funding account 64/70: "0x90869ec252a621103553b89712ee67"
+Funding TX request built.
+Transaction 0x260d1392701c30cf3060e8a7454ede6662dd5f92294ab788ac7f31bc1e22d352 not yet committed. Waiting...
+Transaction 0x260d1392701c30cf3060e8a7454ede6662dd5f92294ab788ac7f31bc1e22d352 not yet committed. Waiting...
+✅ transaction 0x260d1392701c30cf3060e8a7454ede6662dd5f92294ab788ac7f31bc1e22d352 committed
+✅ Submitted funding transaction: 0x260d1392701c30cf3060e8a7454ede6662dd5f92294ab788ac7f31bc1e22d352 
+Account 64/70: "0x90869ec252a621103553b89712ee67"
+=================================================
+Funding account 65/70: "0xc32e370ba60fd8106ce479fa46cc26"
+Funding TX request built.
+Transaction 0x24e155b98a320bb90e59ffd317472af57ebd9332c99851faae1709f33d67f8bf not yet committed. Waiting...
+Transaction 0x24e155b98a320bb90e59ffd317472af57ebd9332c99851faae1709f33d67f8bf not yet committed. Waiting...
+✅ transaction 0x24e155b98a320bb90e59ffd317472af57ebd9332c99851faae1709f33d67f8bf committed
+✅ Submitted funding transaction: 0x24e155b98a320bb90e59ffd317472af57ebd9332c99851faae1709f33d67f8bf 
+Account 65/70: "0xc32e370ba60fd8106ce479fa46cc26"
+=================================================
+Funding account 66/70: "0x6ca1c5b7972afa101ec1070da2ef94"
+Funding TX request built.
+Transaction 0x02a5f698009a901dc6ba70ad7164fb1193501335f13faa13d925495a7fe18d96 not yet committed. Waiting...
+✅ transaction 0x02a5f698009a901dc6ba70ad7164fb1193501335f13faa13d925495a7fe18d96 committed
+✅ Submitted funding transaction: 0x02a5f698009a901dc6ba70ad7164fb1193501335f13faa13d925495a7fe18d96 
+Account 66/70: "0x6ca1c5b7972afa101ec1070da2ef94"
+=================================================
+Funding account 67/70: "0x1f2bb21de5fa32107484fa9db08d79"
+Funding TX request built.
+Transaction 0xd903d81b560f763bcfb62cd827ae2401fe2e9db33bd0d7abba7d8d10f890f6b0 not yet committed. Waiting...
+Transaction 0xd903d81b560f763bcfb62cd827ae2401fe2e9db33bd0d7abba7d8d10f890f6b0 not yet committed. Waiting...
+✅ transaction 0xd903d81b560f763bcfb62cd827ae2401fe2e9db33bd0d7abba7d8d10f890f6b0 committed
+✅ Submitted funding transaction: 0xd903d81b560f763bcfb62cd827ae2401fe2e9db33bd0d7abba7d8d10f890f6b0 
+Account 67/70: "0x1f2bb21de5fa32107484fa9db08d79"
+=================================================
+Funding account 68/70: "0x7cca7257fa4475107d90fbcbbf35df"
+Funding TX request built.
+Transaction 0xb40c5243b7db7fa6fd58a5925ad629febf13b790dca4c97e1d62618c261baeb2 not yet committed. Waiting...
+✅ transaction 0xb40c5243b7db7fa6fd58a5925ad629febf13b790dca4c97e1d62618c261baeb2 committed
+✅ Submitted funding transaction: 0xb40c5243b7db7fa6fd58a5925ad629febf13b790dca4c97e1d62618c261baeb2 
+Account 68/70: "0x7cca7257fa4475107d90fbcbbf35df"
+=================================================
+Funding account 69/70: "0x965b642ca560e510652ec6ff2d6ca9"
+Funding TX request built.
+Transaction 0xa08e267aa9a2951972b04ecaa23f55d0f90ee0d4c8bfec5b9df66c01069bdf5a not yet committed. Waiting...
+Transaction 0xa08e267aa9a2951972b04ecaa23f55d0f90ee0d4c8bfec5b9df66c01069bdf5a not yet committed. Waiting...
+✅ transaction 0xa08e267aa9a2951972b04ecaa23f55d0f90ee0d4c8bfec5b9df66c01069bdf5a committed
+✅ Submitted funding transaction: 0xa08e267aa9a2951972b04ecaa23f55d0f90ee0d4c8bfec5b9df66c01069bdf5a 
+Account 69/70: "0x965b642ca560e510652ec6ff2d6ca9"
+=================================================
+Funding account 70/70: "0x66802769e384521014a0c8c5e4f35d"
+Funding TX request built.
+Transaction 0x2c287cc3e48390533fd2353c9a86ae45965e2f82fb40e441ffd5819b26509a27 not yet committed. Waiting...
+Transaction 0x2c287cc3e48390533fd2353c9a86ae45965e2f82fb40e441ffd5819b26509a27 not yet committed. Waiting...
+✅ transaction 0x2c287cc3e48390533fd2353c9a86ae45965e2f82fb40e441ffd5819b26509a27 committed
+✅ Submitted funding transaction: 0x2c287cc3e48390533fd2353c9a86ae45965e2f82fb40e441ffd5819b26509a27 
+Account 70/70: "0x66802769e384521014a0c8c5e4f35d"
+=================================================
+
+Funding completed.
+
+[Consuming Funding Note For Account 1/70: "0x6b56ba8d045bb11032c3630deee22a"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x9ec572c4c06f4bc5e0a4b56b348fff8db97dbbfc646ae5de491e98f36a4feb0a not yet committed. Waiting...
+Transaction 0x9ec572c4c06f4bc5e0a4b56b348fff8db97dbbfc646ae5de491e98f36a4feb0a not yet committed. Waiting...
+✅ transaction 0x9ec572c4c06f4bc5e0a4b56b348fff8db97dbbfc646ae5de491e98f36a4feb0a committed
+✅ Account 1/70 - Note consumed successfully. TX: 0x9ec572c4c06f4bc5e0a4b56b348fff8db97dbbfc646ae5de491e98f36a4feb0a
+
+[Consuming Funding Note For Account 2/70: "0x52fd3810733a691069b70b05fe7442"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xd42f396d070becd37c696ae7c7bee6fcbab337bfc272ddedddabb817c24c9a7e not yet committed. Waiting...
+✅ transaction 0xd42f396d070becd37c696ae7c7bee6fcbab337bfc272ddedddabb817c24c9a7e committed
+✅ Account 2/70 - Note consumed successfully. TX: 0xd42f396d070becd37c696ae7c7bee6fcbab337bfc272ddedddabb817c24c9a7e
+
+[Consuming Funding Note For Account 3/70: "0xc2728ef1d0631c104103cb05ab6468"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x9f654c373eccf3c36b7a3bd78cf6135be75dc11efd451e8d51114fada821abdc not yet committed. Waiting...
+Transaction 0x9f654c373eccf3c36b7a3bd78cf6135be75dc11efd451e8d51114fada821abdc not yet committed. Waiting...
+✅ transaction 0x9f654c373eccf3c36b7a3bd78cf6135be75dc11efd451e8d51114fada821abdc committed
+✅ Account 3/70 - Note consumed successfully. TX: 0x9f654c373eccf3c36b7a3bd78cf6135be75dc11efd451e8d51114fada821abdc
+
+[Consuming Funding Note For Account 4/70: "0x51769f0591d663106e8fcf347f1427"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xa9da5540c6ee56663c4126ce01214e0c481391d6b74cac50401d2a4c2296b927 not yet committed. Waiting...
+Transaction 0xa9da5540c6ee56663c4126ce01214e0c481391d6b74cac50401d2a4c2296b927 not yet committed. Waiting...
+Transaction 0xa9da5540c6ee56663c4126ce01214e0c481391d6b74cac50401d2a4c2296b927 not yet committed. Waiting...
+✅ transaction 0xa9da5540c6ee56663c4126ce01214e0c481391d6b74cac50401d2a4c2296b927 committed
+✅ Account 4/70 - Note consumed successfully. TX: 0xa9da5540c6ee56663c4126ce01214e0c481391d6b74cac50401d2a4c2296b927
+
+[Consuming Funding Note For Account 5/70: "0xcd8ee3fabbbd44101c8de05d051dfd"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x928328e82855963b0dc2ce05bd258798614613347b835a3c6312bafaa5023e5d not yet committed. Waiting...
+✅ transaction 0x928328e82855963b0dc2ce05bd258798614613347b835a3c6312bafaa5023e5d committed
+✅ Account 5/70 - Note consumed successfully. TX: 0x928328e82855963b0dc2ce05bd258798614613347b835a3c6312bafaa5023e5d
+
+[Consuming Funding Note For Account 6/70: "0x3f4a348d08bb20106d54ac6c6fe792"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x83a72130a8df13cfa2cc2049730cb9378b7304ba36f0b5abfff2e17846d85118 not yet committed. Waiting...
+Transaction 0x83a72130a8df13cfa2cc2049730cb9378b7304ba36f0b5abfff2e17846d85118 not yet committed. Waiting...
+Transaction 0x83a72130a8df13cfa2cc2049730cb9378b7304ba36f0b5abfff2e17846d85118 not yet committed. Waiting...
+✅ transaction 0x83a72130a8df13cfa2cc2049730cb9378b7304ba36f0b5abfff2e17846d85118 committed
+✅ Account 6/70 - Note consumed successfully. TX: 0x83a72130a8df13cfa2cc2049730cb9378b7304ba36f0b5abfff2e17846d85118
+
+[Consuming Funding Note For Account 7/70: "0xf94b402fe212fd10424ec29c11b217"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x12b63a6244869d0ac9e6f01b426307f91e600ba99559d59b68591984fbf15b64 not yet committed. Waiting...
+Transaction 0x12b63a6244869d0ac9e6f01b426307f91e600ba99559d59b68591984fbf15b64 not yet committed. Waiting...
+Transaction 0x12b63a6244869d0ac9e6f01b426307f91e600ba99559d59b68591984fbf15b64 not yet committed. Waiting...
+✅ transaction 0x12b63a6244869d0ac9e6f01b426307f91e600ba99559d59b68591984fbf15b64 committed
+✅ Account 7/70 - Note consumed successfully. TX: 0x12b63a6244869d0ac9e6f01b426307f91e600ba99559d59b68591984fbf15b64
+
+[Consuming Funding Note For Account 8/70: "0x66195099a6be9410056b2fec68bfc4"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x4865945e040e0460ef787b91639fcc823453b9a38e8e900a11a10a1fdcfd2f8e not yet committed. Waiting...
+✅ transaction 0x4865945e040e0460ef787b91639fcc823453b9a38e8e900a11a10a1fdcfd2f8e committed
+✅ Account 8/70 - Note consumed successfully. TX: 0x4865945e040e0460ef787b91639fcc823453b9a38e8e900a11a10a1fdcfd2f8e
+
+[Consuming Funding Note For Account 9/70: "0xcc8a33e3313aa5107e6a2f365117f0"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xe4b2b1a254ef94b6aa9f8e5949742a494dd5acc42ab1d522a509c2e09d1ae2de not yet committed. Waiting...
+Transaction 0xe4b2b1a254ef94b6aa9f8e5949742a494dd5acc42ab1d522a509c2e09d1ae2de not yet committed. Waiting...
+✅ transaction 0xe4b2b1a254ef94b6aa9f8e5949742a494dd5acc42ab1d522a509c2e09d1ae2de committed
+✅ Account 9/70 - Note consumed successfully. TX: 0xe4b2b1a254ef94b6aa9f8e5949742a494dd5acc42ab1d522a509c2e09d1ae2de
+
+[Consuming Funding Note For Account 10/70: "0xff659008dcff65101b649d13e411c6"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x5f80f8a4c32917f57a0ef52ebb5cf4d0d140ef6a97c447c66f45462d213bf0ea not yet committed. Waiting...
+Transaction 0x5f80f8a4c32917f57a0ef52ebb5cf4d0d140ef6a97c447c66f45462d213bf0ea not yet committed. Waiting...
+✅ transaction 0x5f80f8a4c32917f57a0ef52ebb5cf4d0d140ef6a97c447c66f45462d213bf0ea committed
+✅ Account 10/70 - Note consumed successfully. TX: 0x5f80f8a4c32917f57a0ef52ebb5cf4d0d140ef6a97c447c66f45462d213bf0ea
+
+[Consuming Funding Note For Account 11/70: "0x777955c52dcf53106c62435fcbe585"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xdc0a31aede9dcc78d088422ac1b5294d2aec5a11eb7e160c542b68fef61fb194 not yet committed. Waiting...
+Transaction 0xdc0a31aede9dcc78d088422ac1b5294d2aec5a11eb7e160c542b68fef61fb194 not yet committed. Waiting...
+✅ transaction 0xdc0a31aede9dcc78d088422ac1b5294d2aec5a11eb7e160c542b68fef61fb194 committed
+✅ Account 11/70 - Note consumed successfully. TX: 0xdc0a31aede9dcc78d088422ac1b5294d2aec5a11eb7e160c542b68fef61fb194
+
+[Consuming Funding Note For Account 12/70: "0x9aa750d252efdf1056981b02499904"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xda86776a9432a12f716280b2e6435eb69134b8fb1978960458c4d1d553e79650 not yet committed. Waiting...
+Transaction 0xda86776a9432a12f716280b2e6435eb69134b8fb1978960458c4d1d553e79650 not yet committed. Waiting...
+✅ transaction 0xda86776a9432a12f716280b2e6435eb69134b8fb1978960458c4d1d553e79650 committed
+✅ Account 12/70 - Note consumed successfully. TX: 0xda86776a9432a12f716280b2e6435eb69134b8fb1978960458c4d1d553e79650
+
+[Consuming Funding Note For Account 13/70: "0x9090e1a85d93b1102c6ffb8af22dd4"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xaa2a071e5bcf8ffa16bf299438d17a73213bf92cdfed1bc94ecb3cdbd9486833 not yet committed. Waiting...
+Transaction 0xaa2a071e5bcf8ffa16bf299438d17a73213bf92cdfed1bc94ecb3cdbd9486833 not yet committed. Waiting...
+✅ transaction 0xaa2a071e5bcf8ffa16bf299438d17a73213bf92cdfed1bc94ecb3cdbd9486833 committed
+✅ Account 13/70 - Note consumed successfully. TX: 0xaa2a071e5bcf8ffa16bf299438d17a73213bf92cdfed1bc94ecb3cdbd9486833
+
+[Consuming Funding Note For Account 14/70: "0xc78d54f55e843d102632726b2fe122"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xd22fac276f316cd2d679914d885db40d1d37ac3ee9944cf01050284cf51e6f07 not yet committed. Waiting...
+✅ transaction 0xd22fac276f316cd2d679914d885db40d1d37ac3ee9944cf01050284cf51e6f07 committed
+✅ Account 14/70 - Note consumed successfully. TX: 0xd22fac276f316cd2d679914d885db40d1d37ac3ee9944cf01050284cf51e6f07
+
+[Consuming Funding Note For Account 15/70: "0x3e97b9240ec8fb106f3c0a5eadc18e"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xda500a526dd42f55d847d2892da1006f5adf2a6d59db78166ffb6ef73017b6c5 not yet committed. Waiting...
+Transaction 0xda500a526dd42f55d847d2892da1006f5adf2a6d59db78166ffb6ef73017b6c5 not yet committed. Waiting...
+Transaction 0xda500a526dd42f55d847d2892da1006f5adf2a6d59db78166ffb6ef73017b6c5 not yet committed. Waiting...
+✅ transaction 0xda500a526dd42f55d847d2892da1006f5adf2a6d59db78166ffb6ef73017b6c5 committed
+✅ Account 15/70 - Note consumed successfully. TX: 0xda500a526dd42f55d847d2892da1006f5adf2a6d59db78166ffb6ef73017b6c5
+
+[Consuming Funding Note For Account 16/70: "0x482be38adf2e881016f23c8503ed84"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x2ba47a6741630880f88562ac3b447e799eae8e9b0e07dba7fc480160ac75b848 not yet committed. Waiting...
+Transaction 0x2ba47a6741630880f88562ac3b447e799eae8e9b0e07dba7fc480160ac75b848 not yet committed. Waiting...
+✅ transaction 0x2ba47a6741630880f88562ac3b447e799eae8e9b0e07dba7fc480160ac75b848 committed
+✅ Account 16/70 - Note consumed successfully. TX: 0x2ba47a6741630880f88562ac3b447e799eae8e9b0e07dba7fc480160ac75b848
+
+[Consuming Funding Note For Account 17/70: "0xff0c9c53e1ea6a102b0b137227720a"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x003f27b5bbe32373d4fe3c016b8595a3cc36b6011381d71d2e5cbfcc22ce8d33 not yet committed. Waiting...
+Transaction 0x003f27b5bbe32373d4fe3c016b8595a3cc36b6011381d71d2e5cbfcc22ce8d33 not yet committed. Waiting...
+✅ transaction 0x003f27b5bbe32373d4fe3c016b8595a3cc36b6011381d71d2e5cbfcc22ce8d33 committed
+✅ Account 17/70 - Note consumed successfully. TX: 0x003f27b5bbe32373d4fe3c016b8595a3cc36b6011381d71d2e5cbfcc22ce8d33
+
+[Consuming Funding Note For Account 18/70: "0x5692814660f155104ca792ef66368e"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x2e4d1b5953e80fc7d616b699bceac1855e7921726df0e9b52ebe68386dbdef00 not yet committed. Waiting...
+Transaction 0x2e4d1b5953e80fc7d616b699bceac1855e7921726df0e9b52ebe68386dbdef00 not yet committed. Waiting...
+✅ transaction 0x2e4d1b5953e80fc7d616b699bceac1855e7921726df0e9b52ebe68386dbdef00 committed
+✅ Account 18/70 - Note consumed successfully. TX: 0x2e4d1b5953e80fc7d616b699bceac1855e7921726df0e9b52ebe68386dbdef00
+
+[Consuming Funding Note For Account 19/70: "0x5a6e1a3500e870105ba5f0f18c5623"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xaca504981945c1dc074501ebbfc44f2f8c0151ed70cacd40a30555baa51ce00a not yet committed. Waiting...
+Transaction 0xaca504981945c1dc074501ebbfc44f2f8c0151ed70cacd40a30555baa51ce00a not yet committed. Waiting...
+✅ transaction 0xaca504981945c1dc074501ebbfc44f2f8c0151ed70cacd40a30555baa51ce00a committed
+✅ Account 19/70 - Note consumed successfully. TX: 0xaca504981945c1dc074501ebbfc44f2f8c0151ed70cacd40a30555baa51ce00a
+
+[Consuming Funding Note For Account 20/70: "0x1ef5ba5cf3c0b7107c70266bbe2d9b"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xa793b09cfbd63ea40a89412a9854c5c6c7d01f5f6d4227c6bf929a00924a2aa5 not yet committed. Waiting...
+Transaction 0xa793b09cfbd63ea40a89412a9854c5c6c7d01f5f6d4227c6bf929a00924a2aa5 not yet committed. Waiting...
+✅ transaction 0xa793b09cfbd63ea40a89412a9854c5c6c7d01f5f6d4227c6bf929a00924a2aa5 committed
+✅ Account 20/70 - Note consumed successfully. TX: 0xa793b09cfbd63ea40a89412a9854c5c6c7d01f5f6d4227c6bf929a00924a2aa5
+
+[Consuming Funding Note For Account 21/70: "0xfbf13e55bc5ca1102505daede89960"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x83616451cee33ab283531f321f4a2dbd1801e2010057d11bc308241abffd627f not yet committed. Waiting...
+Transaction 0x83616451cee33ab283531f321f4a2dbd1801e2010057d11bc308241abffd627f not yet committed. Waiting...
+Transaction 0x83616451cee33ab283531f321f4a2dbd1801e2010057d11bc308241abffd627f not yet committed. Waiting...
+✅ transaction 0x83616451cee33ab283531f321f4a2dbd1801e2010057d11bc308241abffd627f committed
+✅ Account 21/70 - Note consumed successfully. TX: 0x83616451cee33ab283531f321f4a2dbd1801e2010057d11bc308241abffd627f
+
+[Consuming Funding Note For Account 22/70: "0x9bbde443222db91016468192831ad6"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x405a803dee85c51c5871834c9c9bfbf092b7a00d7035892096f49a39743cc303 not yet committed. Waiting...
+✅ transaction 0x405a803dee85c51c5871834c9c9bfbf092b7a00d7035892096f49a39743cc303 committed
+✅ Account 22/70 - Note consumed successfully. TX: 0x405a803dee85c51c5871834c9c9bfbf092b7a00d7035892096f49a39743cc303
+
+[Consuming Funding Note For Account 23/70: "0xa2ea535d4a9f76105cf7fd4a1491d1"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x7297a12249ecd70ca079bff28d48854b1a742174a242812fec83ae3f6f6a48bf not yet committed. Waiting...
+Transaction 0x7297a12249ecd70ca079bff28d48854b1a742174a242812fec83ae3f6f6a48bf not yet committed. Waiting...
+✅ transaction 0x7297a12249ecd70ca079bff28d48854b1a742174a242812fec83ae3f6f6a48bf committed
+✅ Account 23/70 - Note consumed successfully. TX: 0x7297a12249ecd70ca079bff28d48854b1a742174a242812fec83ae3f6f6a48bf
+
+[Consuming Funding Note For Account 24/70: "0x6cf519f73e922110452c8b2f5f995d"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xb935a779d6c601fac3ae1130e643a9ee6379bf8949a76055db06eaf3071c9b92 not yet committed. Waiting...
+Transaction 0xb935a779d6c601fac3ae1130e643a9ee6379bf8949a76055db06eaf3071c9b92 not yet committed. Waiting...
+✅ transaction 0xb935a779d6c601fac3ae1130e643a9ee6379bf8949a76055db06eaf3071c9b92 committed
+✅ Account 24/70 - Note consumed successfully. TX: 0xb935a779d6c601fac3ae1130e643a9ee6379bf8949a76055db06eaf3071c9b92
+
+[Consuming Funding Note For Account 25/70: "0x67527c942ad121102f7ca975683a35"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x254418aeca45f104afabeb982fd47d0ea67c12fdd06c05ec810c695e41843338 not yet committed. Waiting...
+✅ transaction 0x254418aeca45f104afabeb982fd47d0ea67c12fdd06c05ec810c695e41843338 committed
+✅ Account 25/70 - Note consumed successfully. TX: 0x254418aeca45f104afabeb982fd47d0ea67c12fdd06c05ec810c695e41843338
+
+[Consuming Funding Note For Account 26/70: "0xa23ff064db9e84104283c755961b09"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xf4242f8ee03697e706f86dd2071605577074fb86142e4f1ee09513df9e95187c not yet committed. Waiting...
+Transaction 0xf4242f8ee03697e706f86dd2071605577074fb86142e4f1ee09513df9e95187c not yet committed. Waiting...
+✅ transaction 0xf4242f8ee03697e706f86dd2071605577074fb86142e4f1ee09513df9e95187c committed
+✅ Account 26/70 - Note consumed successfully. TX: 0xf4242f8ee03697e706f86dd2071605577074fb86142e4f1ee09513df9e95187c
+
+[Consuming Funding Note For Account 27/70: "0x22690fcb85288b1041813dda8285c3"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x75a5b1d203472c89078f796d804d2e15c757110cc3613e84ee5d915dabbf4cbc not yet committed. Waiting...
+Transaction 0x75a5b1d203472c89078f796d804d2e15c757110cc3613e84ee5d915dabbf4cbc not yet committed. Waiting...
+✅ transaction 0x75a5b1d203472c89078f796d804d2e15c757110cc3613e84ee5d915dabbf4cbc committed
+✅ Account 27/70 - Note consumed successfully. TX: 0x75a5b1d203472c89078f796d804d2e15c757110cc3613e84ee5d915dabbf4cbc
+
+[Consuming Funding Note For Account 28/70: "0xd4de91c2a7b40c103c5f54740a8763"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xd234a977d112eb660c2c4027285666294d8f563ebc8ea82da78a3966875adefe not yet committed. Waiting...
+Transaction 0xd234a977d112eb660c2c4027285666294d8f563ebc8ea82da78a3966875adefe not yet committed. Waiting...
+✅ transaction 0xd234a977d112eb660c2c4027285666294d8f563ebc8ea82da78a3966875adefe committed
+✅ Account 28/70 - Note consumed successfully. TX: 0xd234a977d112eb660c2c4027285666294d8f563ebc8ea82da78a3966875adefe
+
+[Consuming Funding Note For Account 29/70: "0x59e7538b2181eb1025feb88d27f98d"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xf81b36182a3856da823abb97827660bd2ad218794e01f7ac8f644996256e137d not yet committed. Waiting...
+Transaction 0xf81b36182a3856da823abb97827660bd2ad218794e01f7ac8f644996256e137d not yet committed. Waiting...
+✅ transaction 0xf81b36182a3856da823abb97827660bd2ad218794e01f7ac8f644996256e137d committed
+✅ Account 29/70 - Note consumed successfully. TX: 0xf81b36182a3856da823abb97827660bd2ad218794e01f7ac8f644996256e137d
+
+[Consuming Funding Note For Account 30/70: "0xf6180dd9353bf11028157d436e12e1"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xb61334a2882030f2b736adbe5f791fb0c0623ac52bd4c2272f84de5d31d2a69c not yet committed. Waiting...
+Transaction 0xb61334a2882030f2b736adbe5f791fb0c0623ac52bd4c2272f84de5d31d2a69c not yet committed. Waiting...
+✅ transaction 0xb61334a2882030f2b736adbe5f791fb0c0623ac52bd4c2272f84de5d31d2a69c committed
+✅ Account 30/70 - Note consumed successfully. TX: 0xb61334a2882030f2b736adbe5f791fb0c0623ac52bd4c2272f84de5d31d2a69c
+
+[Consuming Funding Note For Account 31/70: "0x42f6ad0fe161d41015c3e3c5021398"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x4b6cf803dc3a6d7c7994dc23d339673f374cbd21b98a1026c433e8007573122e not yet committed. Waiting...
+Transaction 0x4b6cf803dc3a6d7c7994dc23d339673f374cbd21b98a1026c433e8007573122e not yet committed. Waiting...
+✅ transaction 0x4b6cf803dc3a6d7c7994dc23d339673f374cbd21b98a1026c433e8007573122e committed
+✅ Account 31/70 - Note consumed successfully. TX: 0x4b6cf803dc3a6d7c7994dc23d339673f374cbd21b98a1026c433e8007573122e
+
+[Consuming Funding Note For Account 32/70: "0x0d141ce4f0da24102d18e36fca384f"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xd544a064402222432263780cb9538e588de7e5a147f8d73d7e2595ef1284bf03 not yet committed. Waiting...
+Transaction 0xd544a064402222432263780cb9538e588de7e5a147f8d73d7e2595ef1284bf03 not yet committed. Waiting...
+✅ transaction 0xd544a064402222432263780cb9538e588de7e5a147f8d73d7e2595ef1284bf03 committed
+✅ Account 32/70 - Note consumed successfully. TX: 0xd544a064402222432263780cb9538e588de7e5a147f8d73d7e2595ef1284bf03
+
+[Consuming Funding Note For Account 33/70: "0x520c1af83b0a4b1042a1464a4de126"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x664bd01b1ff877c0d230afb02173bd0d411db937471ce0f17a1ac34d75129b87 not yet committed. Waiting...
+✅ transaction 0x664bd01b1ff877c0d230afb02173bd0d411db937471ce0f17a1ac34d75129b87 committed
+✅ Account 33/70 - Note consumed successfully. TX: 0x664bd01b1ff877c0d230afb02173bd0d411db937471ce0f17a1ac34d75129b87
+
+[Consuming Funding Note For Account 34/70: "0x65960575c0aa49105b53f3096a6d21"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x699e461f33efb4157aa60468be5d7dfce13934096ff415d92a6fdfc2d60f9e0f not yet committed. Waiting...
+Transaction 0x699e461f33efb4157aa60468be5d7dfce13934096ff415d92a6fdfc2d60f9e0f not yet committed. Waiting...
+✅ transaction 0x699e461f33efb4157aa60468be5d7dfce13934096ff415d92a6fdfc2d60f9e0f committed
+✅ Account 34/70 - Note consumed successfully. TX: 0x699e461f33efb4157aa60468be5d7dfce13934096ff415d92a6fdfc2d60f9e0f
+
+[Consuming Funding Note For Account 35/70: "0x569b259860c61f103e88128c5a8986"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xe3c659faee448b33c8b8339e9633fbe826c83056df1adc99f586e938e2616075 not yet committed. Waiting...
+✅ transaction 0xe3c659faee448b33c8b8339e9633fbe826c83056df1adc99f586e938e2616075 committed
+✅ Account 35/70 - Note consumed successfully. TX: 0xe3c659faee448b33c8b8339e9633fbe826c83056df1adc99f586e938e2616075
+
+[Consuming Funding Note For Account 36/70: "0x956353845eced6106a3bce8bb8b006"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x0a962032ba065ff0c7c05e0387d8dead726229f19cf79679253c539f72e2d1f4 not yet committed. Waiting...
+Transaction 0x0a962032ba065ff0c7c05e0387d8dead726229f19cf79679253c539f72e2d1f4 not yet committed. Waiting...
+✅ transaction 0x0a962032ba065ff0c7c05e0387d8dead726229f19cf79679253c539f72e2d1f4 committed
+✅ Account 36/70 - Note consumed successfully. TX: 0x0a962032ba065ff0c7c05e0387d8dead726229f19cf79679253c539f72e2d1f4
+
+[Consuming Funding Note For Account 37/70: "0x523d2480a165aa101b6926de64b6f7"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xcad6a3107e739b393ad36562fb535a88adb2754abda08415afba4fe8cfd2a512 not yet committed. Waiting...
+Transaction 0xcad6a3107e739b393ad36562fb535a88adb2754abda08415afba4fe8cfd2a512 not yet committed. Waiting...
+✅ transaction 0xcad6a3107e739b393ad36562fb535a88adb2754abda08415afba4fe8cfd2a512 committed
+✅ Account 37/70 - Note consumed successfully. TX: 0xcad6a3107e739b393ad36562fb535a88adb2754abda08415afba4fe8cfd2a512
+
+[Consuming Funding Note For Account 38/70: "0x24f36d4036885e106640d1e49d3148"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x07e09bcf85c219e8d91031abb864344d3c7c3ac0c0240ecd1fb2bd366e55575e not yet committed. Waiting...
+Transaction 0x07e09bcf85c219e8d91031abb864344d3c7c3ac0c0240ecd1fb2bd366e55575e not yet committed. Waiting...
+Transaction 0x07e09bcf85c219e8d91031abb864344d3c7c3ac0c0240ecd1fb2bd366e55575e not yet committed. Waiting...
+✅ transaction 0x07e09bcf85c219e8d91031abb864344d3c7c3ac0c0240ecd1fb2bd366e55575e committed
+✅ Account 38/70 - Note consumed successfully. TX: 0x07e09bcf85c219e8d91031abb864344d3c7c3ac0c0240ecd1fb2bd366e55575e
+
+[Consuming Funding Note For Account 39/70: "0xebfe997f9bbb0a100156968b97565f"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x31dbac0b8fc8ac1d0a2256545bdf88ce6a2e0ee5a7e786e4d791aed73092d28d not yet committed. Waiting...
+Transaction 0x31dbac0b8fc8ac1d0a2256545bdf88ce6a2e0ee5a7e786e4d791aed73092d28d not yet committed. Waiting...
+✅ transaction 0x31dbac0b8fc8ac1d0a2256545bdf88ce6a2e0ee5a7e786e4d791aed73092d28d committed
+✅ Account 39/70 - Note consumed successfully. TX: 0x31dbac0b8fc8ac1d0a2256545bdf88ce6a2e0ee5a7e786e4d791aed73092d28d
+
+[Consuming Funding Note For Account 40/70: "0x25885b0c6d5a87106ee8c8b4ae4081"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x6bd6e6cab593e0a0bbcbbb9f92fbf786e21d554d83c9f29540481cc8020bc1ff not yet committed. Waiting...
+Transaction 0x6bd6e6cab593e0a0bbcbbb9f92fbf786e21d554d83c9f29540481cc8020bc1ff not yet committed. Waiting...
+Transaction 0x6bd6e6cab593e0a0bbcbbb9f92fbf786e21d554d83c9f29540481cc8020bc1ff not yet committed. Waiting...
+✅ transaction 0x6bd6e6cab593e0a0bbcbbb9f92fbf786e21d554d83c9f29540481cc8020bc1ff committed
+✅ Account 40/70 - Note consumed successfully. TX: 0x6bd6e6cab593e0a0bbcbbb9f92fbf786e21d554d83c9f29540481cc8020bc1ff
+
+[Consuming Funding Note For Account 41/70: "0x9d1a3018ddfb4d102ab3cdd97f2705"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x71ab2a7eee604480d126484fcb26cd64977ec7075b34ca9b237179358df3b781 not yet committed. Waiting...
+Transaction 0x71ab2a7eee604480d126484fcb26cd64977ec7075b34ca9b237179358df3b781 not yet committed. Waiting...
+Transaction 0x71ab2a7eee604480d126484fcb26cd64977ec7075b34ca9b237179358df3b781 not yet committed. Waiting...
+✅ transaction 0x71ab2a7eee604480d126484fcb26cd64977ec7075b34ca9b237179358df3b781 committed
+✅ Account 41/70 - Note consumed successfully. TX: 0x71ab2a7eee604480d126484fcb26cd64977ec7075b34ca9b237179358df3b781
+
+[Consuming Funding Note For Account 42/70: "0x06673e3ce03f4d1042f110a759772b"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x9d93bf70cdb51800a4cef6ffd627005c2cb2fff7f1649b39d4fb3e95d407c296 not yet committed. Waiting...
+Transaction 0x9d93bf70cdb51800a4cef6ffd627005c2cb2fff7f1649b39d4fb3e95d407c296 not yet committed. Waiting...
+Transaction 0x9d93bf70cdb51800a4cef6ffd627005c2cb2fff7f1649b39d4fb3e95d407c296 not yet committed. Waiting...
+✅ transaction 0x9d93bf70cdb51800a4cef6ffd627005c2cb2fff7f1649b39d4fb3e95d407c296 committed
+✅ Account 42/70 - Note consumed successfully. TX: 0x9d93bf70cdb51800a4cef6ffd627005c2cb2fff7f1649b39d4fb3e95d407c296
+
+[Consuming Funding Note For Account 43/70: "0xb105f633c459581048a79048185edd"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x6ca81ec382da39f4b3348de4aa4c8db9fccc90979690a03f176fa48c62b26af5 not yet committed. Waiting...
+Transaction 0x6ca81ec382da39f4b3348de4aa4c8db9fccc90979690a03f176fa48c62b26af5 not yet committed. Waiting...
+Transaction 0x6ca81ec382da39f4b3348de4aa4c8db9fccc90979690a03f176fa48c62b26af5 not yet committed. Waiting...
+✅ transaction 0x6ca81ec382da39f4b3348de4aa4c8db9fccc90979690a03f176fa48c62b26af5 committed
+✅ Account 43/70 - Note consumed successfully. TX: 0x6ca81ec382da39f4b3348de4aa4c8db9fccc90979690a03f176fa48c62b26af5
+
+[Consuming Funding Note For Account 44/70: "0x9953280859f4c0100720bd6e9a411e"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xb86020e41d02d46d0ef297465d759ff2f4f9b1dd0b906d268819560c3cb23469 not yet committed. Waiting...
+Transaction 0xb86020e41d02d46d0ef297465d759ff2f4f9b1dd0b906d268819560c3cb23469 not yet committed. Waiting...
+✅ transaction 0xb86020e41d02d46d0ef297465d759ff2f4f9b1dd0b906d268819560c3cb23469 committed
+✅ Account 44/70 - Note consumed successfully. TX: 0xb86020e41d02d46d0ef297465d759ff2f4f9b1dd0b906d268819560c3cb23469
+
+[Consuming Funding Note For Account 45/70: "0x998935077856961028aeebaa06072b"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x6cabd4fe16314906af8494edbdb837e83e844f5488d150e0c49bfc3a85a85029 not yet committed. Waiting...
+Transaction 0x6cabd4fe16314906af8494edbdb837e83e844f5488d150e0c49bfc3a85a85029 not yet committed. Waiting...
+✅ transaction 0x6cabd4fe16314906af8494edbdb837e83e844f5488d150e0c49bfc3a85a85029 committed
+✅ Account 45/70 - Note consumed successfully. TX: 0x6cabd4fe16314906af8494edbdb837e83e844f5488d150e0c49bfc3a85a85029
+
+[Consuming Funding Note For Account 46/70: "0x91af1ba1be0573104b801efbc33ef4"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xd0d8f721a6e645dc38667456951519e8c35642f4afb78b5804648303b38b321e not yet committed. Waiting...
+Transaction 0xd0d8f721a6e645dc38667456951519e8c35642f4afb78b5804648303b38b321e not yet committed. Waiting...
+Transaction 0xd0d8f721a6e645dc38667456951519e8c35642f4afb78b5804648303b38b321e not yet committed. Waiting...
+✅ transaction 0xd0d8f721a6e645dc38667456951519e8c35642f4afb78b5804648303b38b321e committed
+✅ Account 46/70 - Note consumed successfully. TX: 0xd0d8f721a6e645dc38667456951519e8c35642f4afb78b5804648303b38b321e
+
+[Consuming Funding Note For Account 47/70: "0x5b4714937fe1531044fc0c22694195"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x4c537402c7f77e675ba765ac803addc6b32629a27155afc908e5ee8e7f7ed4aa not yet committed. Waiting...
+Transaction 0x4c537402c7f77e675ba765ac803addc6b32629a27155afc908e5ee8e7f7ed4aa not yet committed. Waiting...
+Transaction 0x4c537402c7f77e675ba765ac803addc6b32629a27155afc908e5ee8e7f7ed4aa not yet committed. Waiting...
+✅ transaction 0x4c537402c7f77e675ba765ac803addc6b32629a27155afc908e5ee8e7f7ed4aa committed
+✅ Account 47/70 - Note consumed successfully. TX: 0x4c537402c7f77e675ba765ac803addc6b32629a27155afc908e5ee8e7f7ed4aa
+
+[Consuming Funding Note For Account 48/70: "0xc55c2950b57a0a1017346eb975ab9a"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xdee042c7a67003d9954c441571af553d901e2514306e6644d9a9ba73f29b0537 not yet committed. Waiting...
+Transaction 0xdee042c7a67003d9954c441571af553d901e2514306e6644d9a9ba73f29b0537 not yet committed. Waiting...
+✅ transaction 0xdee042c7a67003d9954c441571af553d901e2514306e6644d9a9ba73f29b0537 committed
+✅ Account 48/70 - Note consumed successfully. TX: 0xdee042c7a67003d9954c441571af553d901e2514306e6644d9a9ba73f29b0537
+
+[Consuming Funding Note For Account 49/70: "0xe4790a400a9286102bccced4b47421"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x61a7e4f4f8b820e67257dca9614ec2874cdfb9cd24feb5ab4419581f408e4a50 not yet committed. Waiting...
+Transaction 0x61a7e4f4f8b820e67257dca9614ec2874cdfb9cd24feb5ab4419581f408e4a50 not yet committed. Waiting...
+✅ transaction 0x61a7e4f4f8b820e67257dca9614ec2874cdfb9cd24feb5ab4419581f408e4a50 committed
+✅ Account 49/70 - Note consumed successfully. TX: 0x61a7e4f4f8b820e67257dca9614ec2874cdfb9cd24feb5ab4419581f408e4a50
+
+[Consuming Funding Note For Account 50/70: "0x74e5bbc7cba14110144fbbc98f7c01"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x349662a7660d4e53fc5e30fceda7245014af3787efda2216d08c471174ece002 not yet committed. Waiting...
+Transaction 0x349662a7660d4e53fc5e30fceda7245014af3787efda2216d08c471174ece002 not yet committed. Waiting...
+Transaction 0x349662a7660d4e53fc5e30fceda7245014af3787efda2216d08c471174ece002 not yet committed. Waiting...
+✅ transaction 0x349662a7660d4e53fc5e30fceda7245014af3787efda2216d08c471174ece002 committed
+✅ Account 50/70 - Note consumed successfully. TX: 0x349662a7660d4e53fc5e30fceda7245014af3787efda2216d08c471174ece002
+
+[Consuming Funding Note For Account 51/70: "0x0f1dba56e20194101677b54713d9f9"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xb45778d54964626c59ad87f4f17a2a39a05874bfdfa779a9ee7cc4ddb6e4eed9 not yet committed. Waiting...
+Transaction 0xb45778d54964626c59ad87f4f17a2a39a05874bfdfa779a9ee7cc4ddb6e4eed9 not yet committed. Waiting...
+Transaction 0xb45778d54964626c59ad87f4f17a2a39a05874bfdfa779a9ee7cc4ddb6e4eed9 not yet committed. Waiting...
+✅ transaction 0xb45778d54964626c59ad87f4f17a2a39a05874bfdfa779a9ee7cc4ddb6e4eed9 committed
+✅ Account 51/70 - Note consumed successfully. TX: 0xb45778d54964626c59ad87f4f17a2a39a05874bfdfa779a9ee7cc4ddb6e4eed9
+
+[Consuming Funding Note For Account 52/70: "0xb5cfa9e7cc3fb41019f372566c4540"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xb1cf609eb8dcd7c646b77ec9f5b800ec2868b9fb0273c15e59e136d008161a2e not yet committed. Waiting...
+Transaction 0xb1cf609eb8dcd7c646b77ec9f5b800ec2868b9fb0273c15e59e136d008161a2e not yet committed. Waiting...
+Transaction 0xb1cf609eb8dcd7c646b77ec9f5b800ec2868b9fb0273c15e59e136d008161a2e not yet committed. Waiting...
+✅ transaction 0xb1cf609eb8dcd7c646b77ec9f5b800ec2868b9fb0273c15e59e136d008161a2e committed
+✅ Account 52/70 - Note consumed successfully. TX: 0xb1cf609eb8dcd7c646b77ec9f5b800ec2868b9fb0273c15e59e136d008161a2e
+
+[Consuming Funding Note For Account 53/70: "0xae4929cb2e2c6f1014891f6926b9da"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x351b41b3345909d3a56a96be4cad0b7fa9d3a3291bbcf611e4c76e3627c5f7a2 not yet committed. Waiting...
+Transaction 0x351b41b3345909d3a56a96be4cad0b7fa9d3a3291bbcf611e4c76e3627c5f7a2 not yet committed. Waiting...
+✅ transaction 0x351b41b3345909d3a56a96be4cad0b7fa9d3a3291bbcf611e4c76e3627c5f7a2 committed
+✅ Account 53/70 - Note consumed successfully. TX: 0x351b41b3345909d3a56a96be4cad0b7fa9d3a3291bbcf611e4c76e3627c5f7a2
+
+[Consuming Funding Note For Account 54/70: "0x512fa8a44cd1b8105b68832de13467"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xb0ebabefb11e69aaa21ca66fca1063e94549bf7fa2daa6436bf645fc57749213 not yet committed. Waiting...
+✅ transaction 0xb0ebabefb11e69aaa21ca66fca1063e94549bf7fa2daa6436bf645fc57749213 committed
+✅ Account 54/70 - Note consumed successfully. TX: 0xb0ebabefb11e69aaa21ca66fca1063e94549bf7fa2daa6436bf645fc57749213
+
+[Consuming Funding Note For Account 55/70: "0x2b7856af25cc7c102774dfe8742071"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x29bf7ff0931df20b0d8fef3ae40fc4b8c480e03b7e34367c833fdb1efc9608e8 not yet committed. Waiting...
+Transaction 0x29bf7ff0931df20b0d8fef3ae40fc4b8c480e03b7e34367c833fdb1efc9608e8 not yet committed. Waiting...
+✅ transaction 0x29bf7ff0931df20b0d8fef3ae40fc4b8c480e03b7e34367c833fdb1efc9608e8 committed
+✅ Account 55/70 - Note consumed successfully. TX: 0x29bf7ff0931df20b0d8fef3ae40fc4b8c480e03b7e34367c833fdb1efc9608e8
+
+[Consuming Funding Note For Account 56/70: "0x462c9cf971bfd010245c103324f748"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xaa0804c8eaba3fb86a71c53c60936668f5aa6b6ace6abbf6b3c4aa4be7f03172 not yet committed. Waiting...
+Transaction 0xaa0804c8eaba3fb86a71c53c60936668f5aa6b6ace6abbf6b3c4aa4be7f03172 not yet committed. Waiting...
+✅ transaction 0xaa0804c8eaba3fb86a71c53c60936668f5aa6b6ace6abbf6b3c4aa4be7f03172 committed
+✅ Account 56/70 - Note consumed successfully. TX: 0xaa0804c8eaba3fb86a71c53c60936668f5aa6b6ace6abbf6b3c4aa4be7f03172
+
+[Consuming Funding Note For Account 57/70: "0xe97efaeb5f3c401053e081d32481ca"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xdb767d48bcabf9ce82eada2e58f94b23715ff88034f76d3d52d3c556b99e7ba6 not yet committed. Waiting...
+Transaction 0xdb767d48bcabf9ce82eada2e58f94b23715ff88034f76d3d52d3c556b99e7ba6 not yet committed. Waiting...
+✅ transaction 0xdb767d48bcabf9ce82eada2e58f94b23715ff88034f76d3d52d3c556b99e7ba6 committed
+✅ Account 57/70 - Note consumed successfully. TX: 0xdb767d48bcabf9ce82eada2e58f94b23715ff88034f76d3d52d3c556b99e7ba6
+
+[Consuming Funding Note For Account 58/70: "0xe2f460f30b71d6105d5deba35b5f9b"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x4f4b97595f46ad44ea5316ba4b028d5b9a482a5f48e810ee7702c26d287840b7 not yet committed. Waiting...
+Transaction 0x4f4b97595f46ad44ea5316ba4b028d5b9a482a5f48e810ee7702c26d287840b7 not yet committed. Waiting...
+✅ transaction 0x4f4b97595f46ad44ea5316ba4b028d5b9a482a5f48e810ee7702c26d287840b7 committed
+✅ Account 58/70 - Note consumed successfully. TX: 0x4f4b97595f46ad44ea5316ba4b028d5b9a482a5f48e810ee7702c26d287840b7
+
+[Consuming Funding Note For Account 59/70: "0x936b253b36d7c5104389c76d5e5914"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x0c9d7ee2d4951f416dbedbfea28f5acb85999a9038651d001b1dff631b0e151c not yet committed. Waiting...
+Transaction 0x0c9d7ee2d4951f416dbedbfea28f5acb85999a9038651d001b1dff631b0e151c not yet committed. Waiting...
+✅ transaction 0x0c9d7ee2d4951f416dbedbfea28f5acb85999a9038651d001b1dff631b0e151c committed
+✅ Account 59/70 - Note consumed successfully. TX: 0x0c9d7ee2d4951f416dbedbfea28f5acb85999a9038651d001b1dff631b0e151c
+
+[Consuming Funding Note For Account 60/70: "0x88981c2a08f1f5107625c1b227b633"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x1eb1af57f1dff262f6b21a2db606c57f3b1f7523e2d8eac78f0b1e1c08773f13 not yet committed. Waiting...
+Transaction 0x1eb1af57f1dff262f6b21a2db606c57f3b1f7523e2d8eac78f0b1e1c08773f13 not yet committed. Waiting...
+✅ transaction 0x1eb1af57f1dff262f6b21a2db606c57f3b1f7523e2d8eac78f0b1e1c08773f13 committed
+✅ Account 60/70 - Note consumed successfully. TX: 0x1eb1af57f1dff262f6b21a2db606c57f3b1f7523e2d8eac78f0b1e1c08773f13
+
+[Consuming Funding Note For Account 61/70: "0xe3ab324f137bf7107f5fa77c3b84b1"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x1a081f4b1a760041fc9ef2c308a4be3b0b416cac097a7535080f3eba1f4a5075 not yet committed. Waiting...
+Transaction 0x1a081f4b1a760041fc9ef2c308a4be3b0b416cac097a7535080f3eba1f4a5075 not yet committed. Waiting...
+✅ transaction 0x1a081f4b1a760041fc9ef2c308a4be3b0b416cac097a7535080f3eba1f4a5075 committed
+✅ Account 61/70 - Note consumed successfully. TX: 0x1a081f4b1a760041fc9ef2c308a4be3b0b416cac097a7535080f3eba1f4a5075
+
+[Consuming Funding Note For Account 62/70: "0xef0fd190e19eb41039632d34a4a672"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0xf48bbf987e9d50d3f87ff5bce9272cb739f8285919e105cc2c7e56b6c89380d1 not yet committed. Waiting...
+Transaction 0xf48bbf987e9d50d3f87ff5bce9272cb739f8285919e105cc2c7e56b6c89380d1 not yet committed. Waiting...
+✅ transaction 0xf48bbf987e9d50d3f87ff5bce9272cb739f8285919e105cc2c7e56b6c89380d1 committed
+✅ Account 62/70 - Note consumed successfully. TX: 0xf48bbf987e9d50d3f87ff5bce9272cb739f8285919e105cc2c7e56b6c89380d1
+
+[Consuming Funding Note For Account 63/70: "0x43ea3bf630d2291058e2b36ebf0438"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x1fc4831559f5bdc6cf4e7008ba06e587402c7b4ec2e6b73ba8d773b14d6e03ee not yet committed. Waiting...
+Transaction 0x1fc4831559f5bdc6cf4e7008ba06e587402c7b4ec2e6b73ba8d773b14d6e03ee not yet committed. Waiting...
+✅ transaction 0x1fc4831559f5bdc6cf4e7008ba06e587402c7b4ec2e6b73ba8d773b14d6e03ee committed
+✅ Account 63/70 - Note consumed successfully. TX: 0x1fc4831559f5bdc6cf4e7008ba06e587402c7b4ec2e6b73ba8d773b14d6e03ee
+
+[Consuming Funding Note For Account 64/70: "0x90869ec252a621103553b89712ee67"]
+=================================================
+Found 1 consumable note. Consuming it now...
+
+thread 'main' (426070) panicked at /home/boreas/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/miden-crypto-0.18.2/src/merkle/mmr/partial.rs:396:9:
+if there is an odd element, a merge is required
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,815 @@
+warning: unused import: `ScriptBuilder`
+ --> src/scripts.rs:2:5
+  |
+2 |     ScriptBuilder,
+  |     ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `create_keystore`, `create_note_for_naming`, and `initiate_client`
+  --> src/scripts.rs:14:14
+   |
+14 |     client::{create_keystore, initiate_client},
+   |              ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^
+15 |     notes::{create_library, create_note_for_naming, create_note_for_naming_with_client},
+   |                             ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/scripts.rs:153:5
+    |
+153 |     /// TODO BURADA PRICES MAPINI KONTROL ET OLMUS MU DIYE
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+154 |     let new_account_state = client.get_account(naming_account.id()).await.unwrap();
+    |     ------------------------------------------------------------------------------- rustdoc does not generate documentation for statements
+    |
+    = help: use `//` for a plain comment
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `keystore`
+  --> src/scripts.rs:23:5
+   |
+23 |     keystore: &mut Arc<FilesystemKeyStore<StdRng>>,
+   |     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_keystore`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `midenname-contracts` (lib) generated 4 warnings (run `cargo fix --lib -p midenname-contracts` to apply 2 suggestions)
+warning: unused import: `deploy`
+  --> bin/local_deploy_and_register.rs:27:36
+   |
+27 | use midenname_contracts::scripts::{deploy, deploy_as_network_account};
+   |                                    ^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `ACCOUNT_HEX_IDS` is never used
+  --> bin/local_deploy_and_register.rs:41:7
+   |
+41 | const ACCOUNT_HEX_IDS: [&str; 69] = [
+   |       ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `midenname-contracts` (bin "local_deploy_and_register") generated 2 warnings (run `cargo fix --bin "local_deploy_and_register"` to apply 1 suggestion)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.25s
+     Running `target/debug/local_deploy_and_register`
+Starting Miden Name Registry deployment...
+=================================================
+Deleting existing store & keystore (store.sqlite3)
+Deletion complete.
+=================================================
+Latest block: 650163
+Deployer account ID: "0xe4c6775735abd3103d510fb3cc0ca2"
+one or more warnings were emitted
+Naming account ID: "0xa35889f0616be440048d2453f01cbf"
+one or more warnings were emitted
+View transaction on MidenScan: https://testnet.midenscan.com/tx/0x41713e140017cb673ff3e9246f06880b2a09ac3a30e49a1408316e120c40954c
+Transaction 0x41713e140017cb673ff3e9246f06880b2a09ac3a30e49a1408316e120c40954c not yet committed. Waiting...
+Transaction 0x41713e140017cb673ff3e9246f06880b2a09ac3a30e49a1408316e120c40954c not yet committed. Waiting...
+Transaction 0x41713e140017cb673ff3e9246f06880b2a09ac3a30e49a1408316e120c40954c not yet committed. Waiting...
+Transaction 0x41713e140017cb673ff3e9246f06880b2a09ac3a30e49a1408316e120c40954c not yet committed. Waiting...
+✅ transaction 0x41713e140017cb673ff3e9246f06880b2a09ac3a30e49a1408316e120c40954c committed
+one or more warnings were emitted
+View transaction on MidenScan: https://testnet.midenscan.com/tx/0x5a5deceaaf025f54b2e8fb34d87b8be882ac54f5bdf00bfcf34987021825be2b
+network init note creation tx submitted, waiting for onchain commitment
+Transaction 0x5a5deceaaf025f54b2e8fb34d87b8be882ac54f5bdf00bfcf34987021825be2b not yet committed. Waiting...
+✅ transaction 0x5a5deceaaf025f54b2e8fb34d87b8be882ac54f5bdf00bfcf34987021825be2b committed
+🔢 Final deployer prefix value: 0x0100000000000000000000000000000000000000000000000000000000000000
+one or more warnings were emitted
+View transaction on MidenScan: https://testnet.midenscan.com/tx/0xea683fe66a1aa0b38ac481106441dc054db7ca0c2529f94ef03a58c8c8d9216c
+network set price note creation tx submitted, waiting for onchain commitment
+Transaction 0xea683fe66a1aa0b38ac481106441dc054db7ca0c2529f94ef03a58c8c8d9216c not yet committed. Waiting...
+Transaction 0xea683fe66a1aa0b38ac481106441dc054db7ca0c2529f94ef03a58c8c8d9216c not yet committed. Waiting...
+Transaction 0xea683fe66a1aa0b38ac481106441dc054db7ca0c2529f94ef03a58c8c8d9216c not yet committed. Waiting...
+✅ transaction 0xea683fe66a1aa0b38ac481106441dc054db7ca0c2529f94ef03a58c8c8d9216c committed
+🔢 one letter price value: 0xc00b5a1600000000000000000000000000000000000000000000000000000000
+🔢 two letter price value: 0x00c2eb0b00000000000000000000000000000000000000000000000000000000
+🔢 three letter price value: 0x000e270700000000000000000000000000000000000000000000000000000000
+🔢 four letter price value: 0xc03b470300000000000000000000000000000000000000000000000000000000
+🔢 five letter price value: 0x002d310100000000000000000000000000000000000000000000000000000000
+Creating 1 accounts...
+=================================================
+Deployer account ID: "0x096c220b936a23104171e668bcc122"
+✅ Created account 1/1: "0x096c220b936a23104171e668bcc122"
+=================================================
+🎉 Successfully created all 1 accounts!
+
+[Deploying Fungible Faucet]
+=================================================
+Faucet account ID: "mtst1azr4vq77jp0fygqs9nfz5s45d5c8nhz2"
+Symbol: TRY, Decimals: 6, Max Supply: 100000000000000000
+=================================================
+✅ Faucet deployed successfully!
+
+[Funding Account]
+=================================================
+Funding account 1/1: "0x096c220b936a23104171e668bcc122"
+Funding TX request built.
+Transaction 0x38def19b2d0a62589a278ee87b3c50d667d6aaf23c89adcb7b2a9d30fc6adfc7 not yet committed. Waiting...
+Transaction 0x38def19b2d0a62589a278ee87b3c50d667d6aaf23c89adcb7b2a9d30fc6adfc7 not yet committed. Waiting...
+Transaction 0x38def19b2d0a62589a278ee87b3c50d667d6aaf23c89adcb7b2a9d30fc6adfc7 not yet committed. Waiting...
+✅ transaction 0x38def19b2d0a62589a278ee87b3c50d667d6aaf23c89adcb7b2a9d30fc6adfc7 committed
+✅ Submitted funding transaction: 0x38def19b2d0a62589a278ee87b3c50d667d6aaf23c89adcb7b2a9d30fc6adfc7 
+Account 1/1: "0x096c220b936a23104171e668bcc122"
+=================================================
+
+Funding completed.
+
+[Consuming Funding Note For Account 1/1: "0x096c220b936a23104171e668bcc122"]
+=================================================
+Found 1 consumable note. Consuming it now...
+Transaction 0x32fb005011e05ba451396098374f09dd600f15dc1efd4b3d9a10c76c7ed2988e not yet committed. Waiting...
+Transaction 0x32fb005011e05ba451396098374f09dd600f15dc1efd4b3d9a10c76c7ed2988e not yet committed. Waiting...
+Transaction 0x32fb005011e05ba451396098374f09dd600f15dc1efd4b3d9a10c76c7ed2988e not yet committed. Waiting...
+✅ transaction 0x32fb005011e05ba451396098374f09dd600f15dc1efd4b3d9a10c76c7ed2988e committed
+✅ Account 1/1 - Note consumed successfully. TX: 0x32fb005011e05ba451396098374f09dd600f15dc1efd4b3d9a10c76c7ed2988e
+
+[Setting prices]
+=================================================
+Set price note creation started
+one or more warnings were emitted
+Submitted set price note transaction.
+View transaction on MidenScan: https://testnet.midenscan.com/tx/0x7de6bcb8759ee86fb86cbe7a17966f6802115d05b5a432c1f774bae478286514
+set prices tx submitted, waiting for onchain commitment
+=================================================
+Transaction 0x7de6bcb8759ee86fb86cbe7a17966f6802115d05b5a432c1f774bae478286514 not yet committed. Waiting...
+✅ transaction 0x7de6bcb8759ee86fb86cbe7a17966f6802115d05b5a432c1f774bae478286514 committed
+✅ Notes pricing successfully!
+✅ Set price note processed successfully
+
+[Sending register notes]
+=================================================
+
+[Iteration 1/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8309366
+Encoded domain: Word([0, 0, 9325087569944099, 7])
+one or more warnings were emitted
+Transaction 0x830c2ab9460593d8640245caf7ae83bcd5befaa607f17007dcd7be16ed1979c9 not yet committed. Waiting...
+Transaction 0x830c2ab9460593d8640245caf7ae83bcd5befaa607f17007dcd7be16ed1979c9 not yet committed. Waiting...
+✅ transaction 0x830c2ab9460593d8640245caf7ae83bcd5befaa607f17007dcd7be16ed1979c9 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 2/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 2987770
+Encoded domain: Word([0, 0, 7637354368148509, 7])
+one or more warnings were emitted
+Transaction 0xed89344182c4c0dc759ff7dd9d7fbc96810ddf28f953095ce16ed6c02b699b20 not yet committed. Waiting...
+Transaction 0xed89344182c4c0dc759ff7dd9d7fbc96810ddf28f953095ce16ed6c02b699b20 not yet committed. Waiting...
+✅ transaction 0xed89344182c4c0dc759ff7dd9d7fbc96810ddf28f953095ce16ed6c02b699b20 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 3/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 3551186
+Encoded domain: Word([0, 0, 9327277869375518, 7])
+one or more warnings were emitted
+Transaction 0x152b2ef30ff29aaadebc6cfb83fc36cb7d3e1510c5003952cbc57c45ad6f116b not yet committed. Waiting...
+Transaction 0x152b2ef30ff29aaadebc6cfb83fc36cb7d3e1510c5003952cbc57c45ad6f116b not yet committed. Waiting...
+Transaction 0x152b2ef30ff29aaadebc6cfb83fc36cb7d3e1510c5003952cbc57c45ad6f116b not yet committed. Waiting...
+✅ transaction 0x152b2ef30ff29aaadebc6cfb83fc36cb7d3e1510c5003952cbc57c45ad6f116b committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 4/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 9152545
+Encoded domain: Word([0, 0, 9041422042799140, 7])
+one or more warnings were emitted
+Transaction 0x1026950810e0e954def459ff938c700af92b8e4e0f53867743b14068a2660a20 not yet committed. Waiting...
+Transaction 0x1026950810e0e954def459ff938c700af92b8e4e0f53867743b14068a2660a20 not yet committed. Waiting...
+✅ transaction 0x1026950810e0e954def459ff938c700af92b8e4e0f53867743b14068a2660a20 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 5/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 0715200
+Encoded domain: Word([0, 0, 7629636277903899, 7])
+one or more warnings were emitted
+Transaction 0x6d646cf9af633c0a7131d2e4ab4bba6c474b040c57fb8580a2fd5af0bc1a79d9 not yet committed. Waiting...
+Transaction 0x6d646cf9af633c0a7131d2e4ab4bba6c474b040c57fb8580a2fd5af0bc1a79d9 not yet committed. Waiting...
+✅ transaction 0x6d646cf9af633c0a7131d2e4ab4bba6c474b040c57fb8580a2fd5af0bc1a79d9 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 6/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 9810177
+Encoded domain: Word([0, 0, 9607653317419812, 7])
+one or more warnings were emitted
+Transaction 0x6eb09f0b481ccc2bafdb82038efc5a7e17fca89b65c9aa2a206ededcd1a99fcc not yet committed. Waiting...
+Transaction 0x6eb09f0b481ccc2bafdb82038efc5a7e17fca89b65c9aa2a206ededcd1a99fcc not yet committed. Waiting...
+Transaction 0x6eb09f0b481ccc2bafdb82038efc5a7e17fca89b65c9aa2a206ededcd1a99fcc not yet committed. Waiting...
+✅ transaction 0x6eb09f0b481ccc2bafdb82038efc5a7e17fca89b65c9aa2a206ededcd1a99fcc committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 7/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 9578475
+Encoded domain: Word([0, 0, 9044716383510564, 7])
+one or more warnings were emitted
+Transaction 0xf4febb44c4757e4c2b42af2cc99c60f4b5a92880868fb822ebbb98ae5c515691 not yet committed. Waiting...
+Transaction 0xf4febb44c4757e4c2b42af2cc99c60f4b5a92880868fb822ebbb98ae5c515691 not yet committed. Waiting...
+✅ transaction 0xf4febb44c4757e4c2b42af2cc99c60f4b5a92880868fb822ebbb98ae5c515691 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 8/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 0022236
+Encoded domain: Word([0, 0, 9321784622783259, 7])
+one or more warnings were emitted
+Transaction 0xfd68fe404af3731e26efe98a3b734814b62c9da16fd340dc7ccf5f15fbaf98ff not yet committed. Waiting...
+Transaction 0xfd68fe404af3731e26efe98a3b734814b62c9da16fd340dc7ccf5f15fbaf98ff not yet committed. Waiting...
+✅ transaction 0xfd68fe404af3731e26efe98a3b734814b62c9da16fd340dc7ccf5f15fbaf98ff committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 9/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8767933
+Encoded domain: Word([0, 0, 8477389841572387, 7])
+one or more warnings were emitted
+Transaction 0xf950c207855d0ef390e06bf75703610f7d7f9889a0363beb4e902ca4afe64a34 not yet committed. Waiting...
+Transaction 0xf950c207855d0ef390e06bf75703610f7d7f9889a0363beb4e902ca4afe64a34 not yet committed. Waiting...
+✅ transaction 0xf950c207855d0ef390e06bf75703610f7d7f9889a0363beb4e902ca4afe64a34 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 10/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 5712465
+Encoded domain: Word([0, 0, 9043616770826784, 7])
+one or more warnings were emitted
+Transaction 0x10b28b10f1bcc43a92ea55ed7178f9c6ba553b6f71cb1fbe75cc9b923173a0ef not yet committed. Waiting...
+Transaction 0x10b28b10f1bcc43a92ea55ed7178f9c6ba553b6f71cb1fbe75cc9b923173a0ef not yet committed. Waiting...
+✅ transaction 0x10b28b10f1bcc43a92ea55ed7178f9c6ba553b6f71cb1fbe75cc9b923173a0ef committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 11/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 0765251
+Encoded domain: Word([0, 0, 7916608813081115, 7])
+one or more warnings were emitted
+Transaction 0x0afa6c4f151cb7d5a615e85299c0e8f7291dc6980460fa85d7ca946d710d2d24 not yet committed. Waiting...
+✅ transaction 0x0afa6c4f151cb7d5a615e85299c0e8f7291dc6980460fa85d7ca946d710d2d24 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 12/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 9846134
+Encoded domain: Word([0, 0, 8758830441636644, 7])
+one or more warnings were emitted
+Transaction 0x0a548fd4013dd0e39114e81253e2887bb7c0981f70973cf9aabe1e9270ef8ddb not yet committed. Waiting...
+Transaction 0x0a548fd4013dd0e39114e81253e2887bb7c0981f70973cf9aabe1e9270ef8ddb not yet committed. Waiting...
+✅ transaction 0x0a548fd4013dd0e39114e81253e2887bb7c0981f70973cf9aabe1e9270ef8ddb committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 13/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 4606453
+Encoded domain: Word([0, 0, 8479567372820767, 7])
+one or more warnings were emitted
+Transaction 0x4b54d80dcc5aa3e30a8394070c4f833ac2948b1ce853309c12bff9c9a9dbb613 not yet committed. Waiting...
+✅ transaction 0x4b54d80dcc5aa3e30a8394070c4f833ac2948b1ce853309c12bff9c9a9dbb613 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 14/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 9015075
+Encoded domain: Word([0, 0, 9044699152915236, 7])
+one or more warnings were emitted
+Transaction 0xe607ad1eee4c4986d19c9f60f5c5da7da2a79a536b0c46e9e2b25c586e4a6f72 not yet committed. Waiting...
+✅ transaction 0xe607ad1eee4c4986d19c9f60f5c5da7da2a79a536b0c46e9e2b25c586e4a6f72 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 15/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 9025023
+Encoded domain: Word([0, 0, 8476251641420580, 7])
+one or more warnings were emitted
+Transaction 0x5b2aa3d10d78868636787acd7ee5bef408016aaf8b8c6ece94cf48618f7b4db6 not yet committed. Waiting...
+✅ transaction 0x5b2aa3d10d78868636787acd7ee5bef408016aaf8b8c6ece94cf48618f7b4db6 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 16/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 7216555
+Encoded domain: Word([0, 0, 9042521621273890, 7])
+one or more warnings were emitted
+Transaction 0x8b0f33037a10d4a423c78d22f8b2dd50871578c199d658ec4ef059030c269fca not yet committed. Waiting...
+✅ transaction 0x8b0f33037a10d4a423c78d22f8b2dd50871578c199d658ec4ef059030c269fca committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 17/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6739878
+Encoded domain: Word([0, 0, 9889158510027297, 7])
+one or more warnings were emitted
+Transaction 0xbb1aca23fdb08c031dd58427f4e41f9413a6c096e32fdaddfe71eb7060fad0d7 not yet committed. Waiting...
+Transaction 0xbb1aca23fdb08c031dd58427f4e41f9413a6c096e32fdaddfe71eb7060fad0d7 not yet committed. Waiting...
+✅ transaction 0xbb1aca23fdb08c031dd58427f4e41f9413a6c096e32fdaddfe71eb7060fad0d7 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 18/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 7037142
+Encoded domain: Word([0, 0, 8196980016552738, 7])
+one or more warnings were emitted
+Transaction 0x68eb1a548e8136eea4a1e7d480104d45560b90bb5c15c2831a0d29460759847c not yet committed. Waiting...
+✅ transaction 0x68eb1a548e8136eea4a1e7d480104d45560b90bb5c15c2831a0d29460759847c committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 19/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6430101
+Encoded domain: Word([0, 0, 7911106875891489, 7])
+one or more warnings were emitted
+Transaction 0x8eaae5c00186d9fe12d214e8fec1fc13bbf9eb98c207b1892ace4dd46a031ef9 not yet committed. Waiting...
+✅ transaction 0x8eaae5c00186d9fe12d214e8fec1fc13bbf9eb98c207b1892ace4dd46a031ef9 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 20/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6533055
+Encoded domain: Word([0, 0, 9042500096237601, 7])
+one or more warnings were emitted
+Transaction 0xddb72dec919fba511c27e5d564b5efb3532798e458df08ab42d8e4b61047979f not yet committed. Waiting...
+✅ transaction 0xddb72dec919fba511c27e5d564b5efb3532798e458df08ab42d8e4b61047979f committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 21/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 5106971
+Encoded domain: Word([0, 0, 7918837917490208, 7])
+one or more warnings were emitted
+Transaction 0x5d6f20dd410e28cc198ded0309c5b975950feea3b171f3ed13f8b542adef1267 not yet committed. Waiting...
+Transaction 0x5d6f20dd410e28cc198ded0309c5b975950feea3b171f3ed13f8b542adef1267 not yet committed. Waiting...
+✅ transaction 0x5d6f20dd410e28cc198ded0309c5b975950feea3b171f3ed13f8b542adef1267 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 22/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 3515946
+Encoded domain: Word([0, 0, 9322914249449502, 7])
+one or more warnings were emitted
+Transaction 0xad0d8221cfde4d7095d349142d972c3531cfce4a4910dd21bfd6b3c0eff25abd not yet committed. Waiting...
+✅ transaction 0xad0d8221cfde4d7095d349142d972c3531cfce4a4910dd21bfd6b3c0eff25abd committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 23/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6522566
+Encoded domain: Word([0, 0, 9325096042569761, 7])
+one or more warnings were emitted
+Transaction 0xb7164b22384484713476ed902cb0a65cf6a9eb0fe839b3d76d52cfa66e7e2978 not yet committed. Waiting...
+Transaction 0xb7164b22384484713476ed902cb0a65cf6a9eb0fe839b3d76d52cfa66e7e2978 not yet committed. Waiting...
+✅ transaction 0xb7164b22384484713476ed902cb0a65cf6a9eb0fe839b3d76d52cfa66e7e2978 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 24/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 7650704
+Encoded domain: Word([0, 0, 8755557575958818, 7])
+one or more warnings were emitted
+Transaction 0xb4286b18e9ecbdf59d56e13d5e335018d378d226825d782630b859159d441b8f not yet committed. Waiting...
+✅ transaction 0xb4286b18e9ecbdf59d56e13d5e335018d378d226825d782630b859159d441b8f committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 25/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8265410
+Encoded domain: Word([0, 0, 7630744379792675, 7])
+one or more warnings were emitted
+Transaction 0x7a18d7918911ab864f59e58c6060fef6a128fc2d51bbc989826f9fc83d9b9a61 not yet committed. Waiting...
+Transaction 0x7a18d7918911ab864f59e58c6060fef6a128fc2d51bbc989826f9fc83d9b9a61 not yet committed. Waiting...
+✅ transaction 0x7a18d7918911ab864f59e58c6060fef6a128fc2d51bbc989826f9fc83d9b9a61 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 26/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 4186722
+Encoded domain: Word([0, 0, 8194806746651679, 7])
+one or more warnings were emitted
+Transaction 0x35de5113e2343335885f9a0704799e6246ed7bfede8ddb743958e2fa4e820ed2 not yet committed. Waiting...
+✅ transaction 0x35de5113e2343335885f9a0704799e6246ed7bfede8ddb743958e2fa4e820ed2 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 27/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 7016979
+Encoded domain: Word([0, 0, 10170637731240738, 7])
+one or more warnings were emitted
+Transaction 0x5d08a10cfb479088dbd4c802c60f76ae5136e82a4fa526c48ba2c0cb7a5cc3fb not yet committed. Waiting...
+Transaction 0x5d08a10cfb479088dbd4c802c60f76ae5136e82a4fa526c48ba2c0cb7a5cc3fb not yet committed. Waiting...
+✅ transaction 0x5d08a10cfb479088dbd4c802c60f76ae5136e82a4fa526c48ba2c0cb7a5cc3fb committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 28/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 4128630
+Encoded domain: Word([0, 0, 7632952043052063, 7])
+one or more warnings were emitted
+Transaction 0xe75d4459de9e69a360210fdcd73f6b8e645b44402277d09ddec5f4a5d10e1cab not yet committed. Waiting...
+✅ transaction 0xe75d4459de9e69a360210fdcd73f6b8e645b44402277d09ddec5f4a5d10e1cab committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 29/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 5085823
+Encoded domain: Word([0, 0, 8476286001552160, 7])
+one or more warnings were emitted
+Transaction 0x4df8ca0047fda47173ff2115e34ea8451da55b0e52673a3419b235db721811da not yet committed. Waiting...
+Transaction 0x4df8ca0047fda47173ff2115e34ea8451da55b0e52673a3419b235db721811da not yet committed. Waiting...
+✅ transaction 0x4df8ca0047fda47173ff2115e34ea8451da55b0e52673a3419b235db721811da committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 30/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8951047
+Encoded domain: Word([0, 0, 9604350504608803, 7])
+one or more warnings were emitted
+✅ transaction 0x27959190f517fc62877468a51247b3c26746324122ef220c2a705deba3daad5b committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 31/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 4432682
+Encoded domain: Word([0, 0, 8201399454015263, 7])
+one or more warnings were emitted
+Transaction 0x6dc325e87485350ab2c32f5ed7cf6052187382e09c4e085b95aaca02c87009e1 not yet committed. Waiting...
+Transaction 0x6dc325e87485350ab2c32f5ed7cf6052187382e09c4e085b95aaca02c87009e1 not yet committed. Waiting...
+✅ transaction 0x6dc325e87485350ab2c32f5ed7cf6052187382e09c4e085b95aaca02c87009e1 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 32/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 7980416
+Encoded domain: Word([0, 0, 9319594156303394, 7])
+one or more warnings were emitted
+Transaction 0xa544d081606244c30d6f30db1823c31d4449d25cd4eb7f4efe42f7620421263f not yet committed. Waiting...
+✅ transaction 0xa544d081606244c30d6f30db1823c31d4449d25cd4eb7f4efe42f7620421263f committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 33/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 7810937
+Encoded domain: Word([0, 0, 9603289630647074, 7])
+one or more warnings were emitted
+Transaction 0x9969595c5adf558765849a2a00fe551333a845eef78603dd94acd9133d17c935 not yet committed. Waiting...
+✅ transaction 0x9969595c5adf558765849a2a00fe551333a845eef78603dd94acd9133d17c935 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 34/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 2438045
+Encoded domain: Word([0, 0, 9041400668495645, 7])
+one or more warnings were emitted
+Transaction 0xad3fe7c74ec302dc120d008770d213edf732404d4344c9bd82280f0eb78cea47 not yet committed. Waiting...
+✅ transaction 0xad3fe7c74ec302dc120d008770d213edf732404d4344c9bd82280f0eb78cea47 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 35/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 7368151
+Encoded domain: Word([0, 0, 7916604568444450, 7])
+one or more warnings were emitted
+Transaction 0x235e4ba126b89833b087452ad64dd9b43fbc3e6579e79bea994822a7c397d236 not yet committed. Waiting...
+Transaction 0x235e4ba126b89833b087452ad64dd9b43fbc3e6579e79bea994822a7c397d236 not yet committed. Waiting...
+✅ transaction 0x235e4ba126b89833b087452ad64dd9b43fbc3e6579e79bea994822a7c397d236 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 36/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6126189
+Encoded domain: Word([0, 0, 10171702883195937, 7])
+one or more warnings were emitted
+Transaction 0x405466fa750cfc7a0a55636e218a385adf3411fd4f64f15ca468d33930d341ed not yet committed. Waiting...
+✅ transaction 0x405466fa750cfc7a0a55636e218a385adf3411fd4f64f15ca468d33930d341ed committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 37/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 4080011
+Encoded domain: Word([0, 0, 7912202092878623, 7])
+one or more warnings were emitted
+Transaction 0xa0c18b4565cf58a556dce62587ef537875d52d5a85ae50159f05abf2beed9371 not yet committed. Waiting...
+Transaction 0xa0c18b4565cf58a556dce62587ef537875d52d5a85ae50159f05abf2beed9371 not yet committed. Waiting...
+✅ transaction 0xa0c18b4565cf58a556dce62587ef537875d52d5a85ae50159f05abf2beed9371 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 38/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 1712367
+Encoded domain: Word([0, 0, 9606562429280796, 7])
+one or more warnings were emitted
+Transaction 0x9f5935158f51fa8b5459240cc7e9ca84b54a220bfda1a43c6494fffca7f8b06a not yet committed. Waiting...
+✅ transaction 0x9f5935158f51fa8b5459240cc7e9ca84b54a220bfda1a43c6494fffca7f8b06a committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 39/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 3630899
+Encoded domain: Word([0, 0, 10172832358998302, 7])
+one or more warnings were emitted
+Transaction 0x1777abda9aa574cdd95fc6ba7a3c4fda21014660b27a551cd3877f5cc2837ca4 not yet committed. Waiting...
+✅ transaction 0x1777abda9aa574cdd95fc6ba7a3c4fda21014660b27a551cd3877f5cc2837ca4 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 40/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8628592
+Encoded domain: Word([0, 0, 8202494771274019, 7])
+one or more warnings were emitted
+Transaction 0x7c52985d00db36f891e2f9405773656565fd9a56e58d2784a9b2b9a3f73d1864 not yet committed. Waiting...
+Transaction 0x7c52985d00db36f891e2f9405773656565fd9a56e58d2784a9b2b9a3f73d1864 not yet committed. Waiting...
+✅ transaction 0x7c52985d00db36f891e2f9405773656565fd9a56e58d2784a9b2b9a3f73d1864 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 41/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 2300992
+Encoded domain: Word([0, 0, 8202511816793629, 7])
+one or more warnings were emitted
+Transaction 0xe851b34cef027812f48cb37356e98cb3bd8818e50b94c85199a84a08dc2c4437 not yet committed. Waiting...
+✅ transaction 0xe851b34cef027812f48cb37356e98cb3bd8818e50b94c85199a84a08dc2c4437 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 42/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8917745
+Encoded domain: Word([0, 0, 9041430716359715, 7])
+one or more warnings were emitted
+Transaction 0xfca6ab2cbe6538d4564d2dcf0c9188ad9d844eac9bed88be0110fa8a884aaac7 not yet committed. Waiting...
+✅ transaction 0xfca6ab2cbe6538d4564d2dcf0c9188ad9d844eac9bed88be0110fa8a884aaac7 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 43/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8961138
+Encoded domain: Word([0, 0, 9884730264724515, 7])
+one or more warnings were emitted
+Transaction 0x01d7b4141c29f869ae27e982731fc22d8183f1b15c007621c16e785806c91b05 not yet committed. Waiting...
+✅ transaction 0x01d7b4141c29f869ae27e982731fc22d8183f1b15c007621c16e785806c91b05 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 44/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 4163445
+Encoded domain: Word([0, 0, 9041417764674591, 7])
+one or more warnings were emitted
+Transaction 0xbe27d1b4df351ed5791bd22258214b859fb792c1187fb09830f39696c32d8a94 not yet committed. Waiting...
+✅ transaction 0xbe27d1b4df351ed5791bd22258214b859fb792c1187fb09830f39696c32d8a94 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 45/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6876295
+Encoded domain: Word([0, 0, 9046906783277857, 7])
+one or more warnings were emitted
+Transaction 0x37ccfc0f3a1a1336e6b370be944300e50faf078e32dfc66d9e18e1b67d259e15 not yet committed. Waiting...
+✅ transaction 0x37ccfc0f3a1a1336e6b370be944300e50faf078e32dfc66d9e18e1b67d259e15 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 46/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 7728825
+Encoded domain: Word([0, 0, 9039236004913698, 7])
+one or more warnings were emitted
+Transaction 0x685156dd9d2e571983fa01a9c46b7169049b47a1253d2c3ff32e6bedf6522412 not yet committed. Waiting...
+Transaction 0x685156dd9d2e571983fa01a9c46b7169049b47a1253d2c3ff32e6bedf6522412 not yet committed. Waiting...
+✅ transaction 0x685156dd9d2e571983fa01a9c46b7169049b47a1253d2c3ff32e6bedf6522412 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 47/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 5876158
+Encoded domain: Word([0, 0, 9886929371931424, 7])
+one or more warnings were emitted
+✅ transaction 0xea0fd07710e176796f0c5652b79b8d23bab5f93db745313413be519d0b8df3a9 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 48/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 0354626
+Encoded domain: Word([0, 0, 9320702324776475, 7])
+one or more warnings were emitted
+Transaction 0x9ac04ec9b8af50853fa1dacf47950483c04d0bf4d0ceaebf04a60cfed95a01f3 not yet committed. Waiting...
+✅ transaction 0x9ac04ec9b8af50853fa1dacf47950483c04d0bf4d0ceaebf04a60cfed95a01f3 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 49/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 7706119
+Encoded domain: Word([0, 0, 10164006301671970, 7])
+one or more warnings were emitted
+Transaction 0x712528145e253ff358fe21560da6ef009009fd402ed85507fca3a6f3f65b8d5e not yet committed. Waiting...
+Transaction 0x712528145e253ff358fe21560da6ef009009fd402ed85507fca3a6f3f65b8d5e not yet committed. Waiting...
+✅ transaction 0x712528145e253ff358fe21560da6ef009009fd402ed85507fca3a6f3f65b8d5e committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 50/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6505559
+Encoded domain: Word([0, 0, 10168421511274529, 7])
+one or more warnings were emitted
+Transaction 0x1b5db5005a158a34b15873eaba004b1057c5277cb331c2591962785be37d2058 not yet committed. Waiting...
+✅ transaction 0x1b5db5005a158a34b15873eaba004b1057c5277cb331c2591962785be37d2058 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 51/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 3127366
+Encoded domain: Word([0, 0, 9325087536520222, 7])
+one or more warnings were emitted
+Transaction 0xfbe30fbb355daf75d6899c9b48f91013c3b9b84691994c74443d635496d70200 not yet committed. Waiting...
+Transaction 0xfbe30fbb355daf75d6899c9b48f91013c3b9b84691994c74443d635496d70200 not yet committed. Waiting...
+✅ transaction 0xfbe30fbb355daf75d6899c9b48f91013c3b9b84691994c74443d635496d70200 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 52/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 3684832
+Encoded domain: Word([0, 0, 8195910519693598, 7])
+one or more warnings were emitted
+✅ transaction 0xf7ced5c42735f5c94d113c1b8a7ac6c01fc20725d03914af2fa4c87c5faa356c committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 53/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 2134397
+Encoded domain: Word([0, 0, 9609860997848093, 7])
+one or more warnings were emitted
+Transaction 0xb5471b67dc47e8494e1c3d876562da272337548f6a5e309c04b1e360b66a3df3 not yet committed. Waiting...
+✅ transaction 0xb5471b67dc47e8494e1c3d876562da272337548f6a5e309c04b1e360b66a3df3 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 54/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 0064669
+Encoded domain: Word([0, 0, 10169525301484315, 7])
+one or more warnings were emitted
+Transaction 0xd3fa0fc700ec7cfcb4129906aed90061483ac2b20634e6692133421803c858c2 not yet committed. Waiting...
+✅ transaction 0xd3fa0fc700ec7cfcb4129906aed90061483ac2b20634e6692133421803c858c2 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 55/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 3275630
+Encoded domain: Word([0, 0, 7632951993048350, 7])
+one or more warnings were emitted
+Transaction 0x24799f474d711f5ea8e0ebde885603e90b83258a6baa976f1a98f298cc083bee not yet committed. Waiting...
+✅ transaction 0x24799f474d711f5ea8e0ebde885603e90b83258a6baa976f1a98f298cc083bee committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 56/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 5976520
+Encoded domain: Word([0, 0, 7631848203232288, 7])
+one or more warnings were emitted
+Transaction 0x92b98ae15fefa9a0a365f6e0c9f9855a33fe00ec6c7ae2c6317c6ca65312a649 not yet committed. Waiting...
+✅ transaction 0x92b98ae15fefa9a0a365f6e0c9f9855a33fe00ec6c7ae2c6317c6ca65312a649 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 57/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 4348388
+Encoded domain: Word([0, 0, 9890236530105887, 7])
+one or more warnings were emitted
+Transaction 0x07d4fc1277a3fe425306aa9a95c41c51604a15ca8a656c23de37038185f6262f not yet committed. Waiting...
+✅ transaction 0x07d4fc1277a3fe425306aa9a95c41c51604a15ca8a656c23de37038185f6262f committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 58/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8480825
+Encoded domain: Word([0, 0, 9039235871088419, 7])
+one or more warnings were emitted
+Transaction 0xb92073cb20f947f815877f344949143bcff9ba6468f9433241506b2ed5326bcf not yet committed. Waiting...
+Transaction 0xb92073cb20f947f815877f344949143bcff9ba6468f9433241506b2ed5326bcf not yet committed. Waiting...
+✅ transaction 0xb92073cb20f947f815877f344949143bcff9ba6468f9433241506b2ed5326bcf committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 59/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 0494283
+Encoded domain: Word([0, 0, 8482857284804379, 7])
+one or more warnings were emitted
+Transaction 0x859db9059331dd27b6c5ed4a37778c1c6b27b410d04b1b664c85495e88aa48ca not yet committed. Waiting...
+✅ transaction 0x859db9059331dd27b6c5ed4a37778c1c6b27b410d04b1b664c85495e88aa48ca committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 60/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 2847921
+Encoded domain: Word([0, 0, 7913340376392477, 7])
+one or more warnings were emitted
+✅ transaction 0x18ce31cf093d697c64aa5d744bc5951f0d74c9783cedabc2f26c153257c44fbd committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 61/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8657667
+Encoded domain: Word([0, 0, 9606575398330659, 7])
+one or more warnings were emitted
+Transaction 0xb2134950a0176a1bab04589f0bf9e665aa70b852dc839a39928f30bdb1007a65 not yet committed. Waiting...
+✅ transaction 0xb2134950a0176a1bab04589f0bf9e665aa70b852dc839a39928f30bdb1007a65 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 62/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6972508
+Encoded domain: Word([0, 0, 9881448926553121, 7])
+one or more warnings were emitted
+Transaction 0x000a571cc3f4ce670bbca347f098a3b0bfe612608c17766ca590ba823f1b8a74 not yet committed. Waiting...
+✅ transaction 0x000a571cc3f4ce670bbca347f098a3b0bfe612608c17766ca590ba823f1b8a74 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 63/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6033338
+Encoded domain: Word([0, 0, 9884738888014625, 7])
+one or more warnings were emitted
+Transaction 0x908746d735ee40523591afe74074c98d76c5411de4d5a6d60a034bda9ae435b7 not yet committed. Waiting...
+✅ transaction 0x908746d735ee40523591afe74074c98d76c5411de4d5a6d60a034bda9ae435b7 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 64/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6220178
+Encoded domain: Word([0, 0, 9889128294194465, 7])
+one or more warnings were emitted
+Transaction 0xf26933f7eb0aba9abb287f382215693dde2faa8ead80bb4daebd51916ae5b85a not yet committed. Waiting...
+Transaction 0xf26933f7eb0aba9abb287f382215693dde2faa8ead80bb4daebd51916ae5b85a not yet committed. Waiting...
+✅ transaction 0xf26933f7eb0aba9abb287f382215693dde2faa8ead80bb4daebd51916ae5b85a committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 65/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 4694256
+Encoded domain: Word([0, 0, 9323983680053535, 7])
+one or more warnings were emitted
+✅ transaction 0xfc99205ac47e434657f514a4fa9db6805465fe3a09f0e7c9b3fb11a82faf2378 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 66/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 6508019
+Encoded domain: Word([0, 0, 10164002040258593, 7])
+one or more warnings were emitted
+Transaction 0x3dbc1c3d2f5844e261c0a8a8bbe714df8e7f7a18895ef91b58b7fcc466799198 not yet committed. Waiting...
+✅ transaction 0x3dbc1c3d2f5844e261c0a8a8bbe714df8e7f7a18895ef91b58b7fcc466799198 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 67/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 8013051
+Encoded domain: Word([0, 0, 7916600189262627, 7])
+one or more warnings were emitted
+Transaction 0xb24a4a95269311edf749b7465687938d3868455e334450dcf26dfc2e7f087d27 not yet committed. Waiting...
+✅ transaction 0xb24a4a95269311edf749b7465687938d3868455e334450dcf26dfc2e7f087d27 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 68/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 2647917
+Encoded domain: Word([0, 0, 9601090725028125, 7])
+one or more warnings were emitted
+Transaction 0x9038dcc197fe284bf1be2263b12db96f6b10b397fd92ff4f6db857fe2204e581 not yet committed. Waiting...
+✅ transaction 0x9038dcc197fe284bf1be2263b12db96f6b10b397fd92ff4f6db857fe2204e581 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 69/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 5779488
+Encoded domain: Word([0, 0, 9890240842048032, 7])
+one or more warnings were emitted
+Transaction 0x228b52d334b2c0ac64749a97b4635e35620bc33e2cdd520a3331a319b95dda08 not yet committed. Waiting...
+✅ transaction 0x228b52d334b2c0ac64749a97b4635e35620bc33e2cdd520a3331a319b95dda08 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+
+[Iteration 70/70] Creating register note for account: "0x096c220b936a23104171e668bcc122"
+Generated domain string: 4094462
+Encoded domain: Word([0, 0, 8199191874771743, 7])
+one or more warnings were emitted
+Transaction 0xce8f0028dfa7bb76d174d25bbeaf64c305728cf47dcda4395d2c998fea5d0fc9 not yet committed. Waiting...
+✅ transaction 0xce8f0028dfa7bb76d174d25bbeaf64c305728cf47dcda4395d2c998fea5d0fc9 committed
+🔢 storage value: 0x0022c1bc68e6714110236a930b226c0900000000000000000000000000000000
+✅ Register note sent successfully for account: "0x096c220b936a23104171e668bcc122"
+Finding notes...
+
+🔍 Attempt 1/5
+⏳ No consumable notes found yet...
+⏰ Waiting 2 seconds before retry...
+
+🔍 Attempt 2/5
+⏳ No consumable notes found yet...
+⏰ Waiting 2 seconds before retry...
+
+🔍 Attempt 3/5
+⏳ No consumable notes found yet...
+⏰ Waiting 2 seconds before retry...
+
+🔍 Attempt 4/5
+⏳ No consumable notes found yet...
+⏰ Waiting 2 seconds before retry...
+
+🔍 Attempt 5/5
+⏳ No consumable notes found yet...
+❌ Max attempts (5) reached. No consumable notes found.

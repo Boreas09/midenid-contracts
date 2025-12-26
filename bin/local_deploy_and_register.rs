@@ -24,8 +24,11 @@ use miden_objects::asset::TokenSymbol;
 use midenname_contracts::accounts::{create_deployer_account, create_naming_account};
 use midenname_contracts::client::initiate_client;
 use midenname_contracts::domain::encode_domain;
-use midenname_contracts::scripts::deploy;
-use midenname_contracts::{notes::create_note_for_naming, transaction::wait_for_tx};
+use midenname_contracts::scripts::{deploy, deploy_as_network_account};
+use midenname_contracts::{
+    notes::{create_note_for_naming, create_note_for_naming_with_client},
+    transaction::wait_for_tx,
+};
 use rand::Rng;
 use rand::RngCore;
 use rand::rngs::StdRng;
@@ -83,16 +86,16 @@ async fn main() -> anyhow::Result<()> {
     let naming_account = create_naming_account(&mut client, true).await?;
 
     // deploy contracts
-    deploy(
+    deploy_as_network_account(
         &mut client,
         &mut keystore,
-        deployer_account.id(),
-        naming_account.id(),
+        deployer_account.clone(),
+        naming_account.clone(),
     )
     .await?;
 
-    // Create 70 accounts
-    let all_accounts = create_multiple_accounts(&mut client, &mut keystore, 5).await?;
+    // // Create 70 accounts
+    let all_accounts = create_multiple_accounts(&mut client, &mut keystore, 1).await?;
 
     // Deploy a fungible faucet
     let faucet_id = deploy_fungible_faucet(
@@ -113,24 +116,31 @@ async fn main() -> anyhow::Result<()> {
         consume_funding_note(&mut client, account.id(), index + 1, total_accounts).await?;
     }
 
-    // Send and consume set price note
-    sending_and_consuming_set_price_note(
-        &mut client,
-        faucet_id,
-        deployer_account.id(),
-        naming_account.id(),
-        false,
-    )
-    .await?;
+    // Send and consume set price note with retry on error
+    loop {
+        match sending_and_consuming_set_price_note(
+            &mut client,
+            faucet_id,
+            deployer_account.id(),
+            naming_account.id(),
+            true,
+        )
+        .await
+        {
+            Ok(_) => {
+                println!("✅ Set price note processed successfully");
+                break;
+            }
+            Err(e) => {
+                println!("⚠️  Error in sending_and_consuming_set_price_note: {:?}", e);
+                println!("Waiting 5 seconds before retrying...");
+                tokio::time::sleep(Duration::from_secs(5)).await;
+            }
+        }
+    }
 
     // Send and consume register notes for all created accounts
-    send_register_note(
-        &mut client,
-        naming_account.id(),
-        all_accounts.clone(),
-        faucet_id,
-    )
-    .await?;
+    send_register_note(&mut client, naming_account.id(), all_accounts, faucet_id).await?;
 
     // Check if any consumable notes are left for the naming account
     find_consumable_notes(&mut client, naming_account.id()).await?;
@@ -157,7 +167,19 @@ pub async fn initiate_local_client(
         .build()
         .await?;
 
-    let sync_summary = client.sync_state().await.unwrap();
+    let sync_summary = loop {
+        match client.sync_state().await {
+            Ok(summary) => break summary,
+            Err(e) => {
+                println!(
+                    "⚠️  Error syncing state during client initialization: {:?}",
+                    e
+                );
+                println!("Waiting 5 seconds before retrying...");
+                tokio::time::sleep(Duration::from_secs(5)).await;
+            }
+        }
+    };
     println!("Latest block: {}", sync_summary.block_num);
     Ok(client)
 }
@@ -228,15 +250,24 @@ async fn deploy_fungible_faucet(
     keystore.add_key(&key_pair).unwrap();
 
     let faucet_account_id = faucet_account.id();
-    let faucet_account_id_bech32 = faucet_account_id.to_bech32(NetworkId::Devnet);
+    let faucet_account_id_bech32 = faucet_account_id.to_bech32(NetworkId::Testnet);
     println!("Faucet account ID: {:?}", faucet_account_id_bech32);
     println!(
         "Symbol: {}, Decimals: {}, Max Supply: {}",
         symbol, decimals, max_supply
     );
 
-    // Resync to show newly deployed faucet
-    client.sync_state().await?;
+    // Resync to show newly deployed faucet with retry
+    loop {
+        match client.sync_state().await {
+            Ok(_) => break,
+            Err(e) => {
+                println!("⚠️  Error syncing state after faucet deployment: {:?}", e);
+                println!("Waiting 5 seconds before retrying...");
+                tokio::time::sleep(Duration::from_secs(5)).await;
+            }
+        }
+    }
     tokio::time::sleep(Duration::from_secs(2)).await;
 
     println!("=================================================");
@@ -255,7 +286,7 @@ async fn fund_account(
     println!("\n[Funding Account]");
     println!("=================================================");
 
-    let amount: u64 = 1_000_000_00;
+    let amount: u64 = 1_000_000_000;
 
     let fungible_asset = FungibleAsset::new(faucet_id, amount).unwrap();
 
@@ -268,37 +299,59 @@ async fn fund_account(
             total_accounts,
             account.id().to_hex()
         );
-        let transaction_request = TransactionRequestBuilder::new()
-            .build_mint_fungible_asset(
-                fungible_asset.clone(),
-                account.id(),
-                NoteType::Public,
-                client.rng(),
-            )
-            .unwrap();
 
-        println!("Funding TX request built.");
+        loop {
+            let funding_result = async {
+                let transaction_request = TransactionRequestBuilder::new()
+                    .build_mint_fungible_asset(
+                        fungible_asset.clone(),
+                        account.id(),
+                        NoteType::Public,
+                        client.rng(),
+                    )
+                    .unwrap();
 
-        client.sync_state().await?;
+                println!("Funding TX request built.");
 
-        sleep(Duration::from_secs(6)).await;
+                client.sync_state().await?;
 
-        let tx_id = client
-            .submit_new_transaction(faucet_id, transaction_request)
-            .await?;
+                let tx_id = client
+                    .submit_new_transaction(faucet_id, transaction_request)
+                    .await?;
 
-        wait_for_tx(client, tx_id).await?;
+                wait_for_tx(client, tx_id).await?;
 
-        client.sync_state().await?;
+                client.sync_state().await?;
 
-        println!(
-            "Submitted funding transaction: {:?} \nAccount {}/{}: {:?}",
-            tx_id,
-            index + 1,
-            total_accounts,
-            account.id().to_hex()
-        );
-        println!("=================================================");
+                anyhow::Ok(tx_id)
+            }
+            .await;
+
+            match funding_result {
+                Ok(tx_id) => {
+                    println!(
+                        "✅ Submitted funding transaction: {:?} \nAccount {}/{}: {:?}",
+                        tx_id,
+                        index + 1,
+                        total_accounts,
+                        account.id().to_hex()
+                    );
+                    println!("=================================================");
+                    break;
+                }
+                Err(e) => {
+                    println!(
+                        "⚠️  Error funding account {}/{}: {:?}",
+                        index + 1,
+                        total_accounts,
+                        e
+                    );
+                    println!("Waiting 5 seconds before retrying...");
+                    tokio::time::sleep(Duration::from_secs(5)).await;
+                    // Loop will retry for the same account
+                }
+            }
+        }
     }
 
     println!("\nFunding completed.");
@@ -321,40 +374,103 @@ async fn consume_funding_note(
     );
     println!("=================================================");
 
-    client.sync_state().await?;
-
-    sleep(Duration::from_secs(6)).await;
+    let mut attempts = 0;
+    let max_attempts = 2;
 
     loop {
         // Resync to get the latest data
-        client.sync_state().await?;
+        if let Err(e) = client.sync_state().await {
+            println!(
+                "⚠️  Error syncing state for account {}/{}: {:?}",
+                account_index, total_accounts, e
+            );
+            println!("Waiting 5 seconds before retrying...");
+            tokio::time::sleep(Duration::from_secs(5)).await;
+            continue;
+        }
 
-        let consumable_notes = client.get_consumable_notes(Some(target_account)).await?;
-        let list_of_note_ids: Vec<_> = consumable_notes.iter().map(|(note, _)| note.id()).collect();
+        if let Err(e) = client.sync_state().await {
+            println!(
+                "⚠️  Error syncing state for account {}/{}: {:?}",
+                account_index, total_accounts, e
+            );
+            println!("Waiting 5 seconds before retrying...");
+            tokio::time::sleep(Duration::from_secs(5)).await;
+            continue;
+        }
+
+        // Try to get consumable notes with error handling
+        let notes_result = client.get_consumable_notes(Some(target_account)).await;
+
+        let list_of_note_ids: Vec<_> = match notes_result {
+            Ok(consumable_notes) => consumable_notes.iter().map(|(note, _)| note.id()).collect(),
+            Err(e) => {
+                println!(
+                    "⚠️  Error getting consumable notes for account {}/{}: {:?}",
+                    account_index, total_accounts, e
+                );
+                println!("Waiting 5 seconds before retrying...");
+                tokio::time::sleep(Duration::from_secs(5)).await;
+                continue;
+            }
+        };
 
         if list_of_note_ids.len() == 1 {
             println!("Found 1 consumable note. Consuming it now...");
-            let transaction_request = TransactionRequestBuilder::new()
-                .build_consume_notes(list_of_note_ids)
-                .unwrap();
 
-            let tx_id = client
-                .submit_new_transaction(target_account, transaction_request)
-                .await?;
+            // Try to consume the note with error handling
+            let consume_result = async {
+                let transaction_request = TransactionRequestBuilder::new()
+                    .build_consume_notes(list_of_note_ids.clone())
+                    .unwrap();
 
-            wait_for_tx(client, tx_id).await?;
+                let tx_id = client
+                    .submit_new_transaction(target_account, transaction_request)
+                    .await?;
 
-            println!(
-                "✅ Account {}/{} - Note consumed successfully. TX: {:?}",
-                account_index, total_accounts, tx_id
-            );
+                wait_for_tx(client, tx_id).await?;
 
-            return anyhow::Ok(());
+                anyhow::Ok(tx_id)
+            }
+            .await;
+
+            match consume_result {
+                Ok(tx_id) => {
+                    println!(
+                        "✅ Account {}/{} - Note consumed successfully. TX: {:?}",
+                        account_index, total_accounts, tx_id
+                    );
+                    return anyhow::Ok(());
+                }
+                Err(e) => {
+                    println!(
+                        "⚠️  Error consuming note for account {}/{}: {:?}",
+                        account_index, total_accounts, e
+                    );
+                    println!("Waiting 5 seconds before retrying...");
+                    tokio::time::sleep(Duration::from_secs(5)).await;
+                    // Loop will continue and retry for the same account
+                    continue;
+                }
+            }
         } else {
+            attempts += 1;
             println!(
-                "Currently, {} number of consumable notes. Waiting...",
-                list_of_note_ids.len()
+                "Currently, {} number of consumable notes. Attempt {}/{}. Waiting...",
+                list_of_note_ids.len(),
+                attempts,
+                max_attempts
             );
+
+            if attempts >= max_attempts {
+                println!(
+                    "⚠️  Failed to consume funding note after {} attempts. Found {} consumable notes (expected 1). Skipping...",
+                    max_attempts,
+                    list_of_note_ids.len()
+                );
+                return anyhow::Ok(());
+            }
+
             tokio::time::sleep(Duration::from_secs(3)).await;
         }
     }
@@ -381,12 +497,13 @@ async fn sending_and_consuming_set_price_note(
         .to_vec(),
     )?;
 
-    let set_prices_note = create_note_for_naming(
+    let set_prices_note = create_note_for_naming_with_client(
         "set_all_prices".to_string(),
         set_prices_note_inputs,
         deployer_account,
         naming_account,
         NoteAssets::new(vec![]).unwrap(),
+        client,
     )
     .await?;
 
@@ -404,7 +521,16 @@ async fn sending_and_consuming_set_price_note(
         "View transaction on MidenScan: https://testnet.midenscan.com/tx/{:?}",
         set_prices_tx_id
     );
-    client.sync_state().await?;
+    loop {
+        match client.sync_state().await {
+            Ok(_) => break,
+            Err(e) => {
+                println!("⚠️  Error syncing state after set prices tx: {:?}", e);
+                println!("Waiting 5 seconds before retrying...");
+                tokio::time::sleep(Duration::from_secs(5)).await;
+            }
+        }
+    }
 
     println!("set prices tx submitted, waiting for onchain commitment");
 
@@ -414,9 +540,18 @@ async fn sending_and_consuming_set_price_note(
 
     sleep(Duration::from_secs(6)).await;
 
-    client.sync_state().await?;
+    loop {
+        match client.sync_state().await {
+            Ok(_) => break,
+            Err(e) => {
+                println!("⚠️  Error syncing state after wait_for_tx: {:?}", e);
+                println!("Waiting 5 seconds before retrying...");
+                tokio::time::sleep(Duration::from_secs(5)).await;
+            }
+        }
+    }
 
-    if is_network {
+    if !is_network {
         sleep(Duration::from_secs(6)).await;
 
         println!("Consuming pricing notes...");
@@ -458,14 +593,18 @@ async fn send_register_note(
 
     let mut rng = rand::rng();
 
-    for account in generated_accounts {
+    // Loop 70 times, cycling through 5 accounts
+    for i in 0..70 {
+        let account = &generated_accounts[i % generated_accounts.len()];
+
         println!(
-            "Creating register note for account: {:?}",
+            "\n[Iteration {}/70] Creating register note for account: {:?}",
+            i + 1,
             account.id().to_hex()
         );
 
-        let mut s = String::with_capacity(5);
-        for _ in 0..5 {
+        let mut s = String::with_capacity(7);
+        for _ in 0..7 {
             let digit = rng.random_range(0..10);
             s.push(char::from(b'0' + digit as u8));
         }
@@ -476,66 +615,97 @@ async fn send_register_note(
 
         println!("Encoded domain: {:?}", domain);
 
-        let fungible_asset = FungibleAsset::new(faucet_id, 1).unwrap();
-        let register_note_inputs = NoteInputs::new(
-            [
-                Felt::new(faucet_id.suffix().as_int()),
-                faucet_id.prefix().as_felt(),
-                Felt::new(0),
-                Felt::new(0),
-                domain[0],
-                domain[1],
-                domain[2],
-                domain[3],
-            ]
-            .to_vec(),
-        )?;
+        // Retry loop for register note transaction
+        loop {
+            let register_result = async {
+                let fungible_asset = FungibleAsset::new(faucet_id, 123).unwrap();
+                let register_note_inputs = NoteInputs::new(
+                    [
+                        Felt::new(faucet_id.suffix().as_int()),
+                        faucet_id.prefix().as_felt(),
+                        Felt::new(0),
+                        Felt::new(0),
+                        domain[0],
+                        domain[1],
+                        domain[2],
+                        domain[3],
+                    ]
+                    .to_vec(),
+                )?;
 
-        let register_asset = NoteAssets::new(vec![fungible_asset.into()])?;
+                let register_asset = NoteAssets::new(vec![fungible_asset.into()])?;
 
-        let register_note = create_note_for_naming(
-            "register_name".to_string(),
-            register_note_inputs,
-            account.id(),
-            naming_account,
-            register_asset,
-        )
-        .await?;
+                let register_note = create_note_for_naming_with_client(
+                    "register_name".to_string(),
+                    register_note_inputs,
+                    account.id(),
+                    naming_account,
+                    register_asset,
+                    client,
+                )
+                .await?;
 
-        let register_note_req = TransactionRequestBuilder::new()
-            .own_output_notes(vec![OutputNote::Full(register_note.clone())])
-            .build()?;
+                let register_note_req = TransactionRequestBuilder::new()
+                    .own_output_notes(vec![OutputNote::Full(register_note.clone())])
+                    .build()?;
 
-        let register_note_tx_id = client
-            .submit_new_transaction(account.id(), register_note_req)
-            .await?;
+                let register_note_tx_id = client
+                    .submit_new_transaction(account.id(), register_note_req)
+                    .await?;
 
-        wait_for_tx(client, register_note_tx_id).await?;
+                wait_for_tx(client, register_note_tx_id).await?;
 
-        sleep(Duration::from_secs(6)).await;
+                sleep(Duration::from_secs(6)).await;
 
-        client.sync_state().await?;
+                client.sync_state().await?;
 
-        let note_id = register_note.id();
+                anyhow::Ok(())
+            }
+            .await;
 
-        let nop_script_code = fs::read_to_string(Path::new("./masm/scripts/nop.masm"))?;
-        let transaction_script = ScriptBuilder::new(false).compile_tx_script(nop_script_code)?;
+            match register_result {
+                Ok(_) => {
+                    let new_account_state = client.get_account(naming_account).await.unwrap();
 
-        let consume_request = TransactionRequestBuilder::new()
-            .authenticated_input_notes(vec![(note_id, None)])
-            .custom_script(transaction_script)
-            .build()?;
+                    if let Some(account) = new_account_state.as_ref() {
+                        let count: Word = account
+                            .account()
+                            .storage()
+                            .get_map_item(5, domain)
+                            .unwrap()
+                            .into();
+                        println!("🔢 storage value: {}", count.to_string());
+                    }
 
-        let consume_tx_id = client
-            .submit_new_transaction(naming_account, consume_request)
-            .await?;
-        println!("📝 Consuming notes via transaction: {:?}", consume_tx_id);
+                    loop {
+                        match client.sync_state().await {
+                            Ok(_) => break,
+                            Err(e) => {
+                                println!("⚠️  Error syncing state after register: {:?}", e);
+                                println!("Waiting 5 seconds before retrying...");
+                                tokio::time::sleep(Duration::from_secs(5)).await;
+                            }
+                        }
+                    }
 
-        wait_for_tx(client, consume_tx_id).await?;
-
-        sleep(Duration::from_secs(6)).await;
-
-        client.sync_state().await?;
+                    println!(
+                        "✅ Register note sent successfully for account: {:?}",
+                        account.id().to_hex()
+                    );
+                    break;
+                }
+                Err(e) => {
+                    println!(
+                        "⚠️  Error sending register note for account {:?}: {:?}",
+                        account.id().to_hex(),
+                        e
+                    );
+                    println!("Waiting 5 seconds before retrying...");
+                    tokio::time::sleep(Duration::from_secs(5)).await;
+                    // Loop will retry for the same account
+                }
+            }
+        }
     }
 
     // Implementation for sending register note goes here
@@ -553,16 +723,29 @@ async fn find_consumable_notes(
 
     println!("Finding notes...");
 
-    let max_attempts = 50;
+    let max_attempts = 5;
     let mut attempt = 0;
 
     loop {
         attempt += 1;
         println!("\n🔍 Attempt {}/{}", attempt, max_attempts);
 
-        client.sync_state().await?;
+        if let Err(e) = client.sync_state().await {
+            println!("⚠️  Error syncing state in find_consumable_notes: {:?}", e);
+            println!("Waiting 5 seconds before retrying...");
+            tokio::time::sleep(Duration::from_secs(5)).await;
+            continue;
+        }
 
-        let consumable_notes = client.get_consumable_notes(Some(naming_account)).await?;
+        let consumable_notes = match client.get_consumable_notes(Some(naming_account)).await {
+            Ok(notes) => notes,
+            Err(e) => {
+                println!("⚠️  Error getting consumable notes: {:?}", e);
+                println!("Waiting 5 seconds before retrying...");
+                tokio::time::sleep(Duration::from_secs(5)).await;
+                continue;
+            }
+        };
 
         if !consumable_notes.is_empty() {
             println!("✅ Found {} consumable note(s)", consumable_notes.len());
@@ -739,7 +922,16 @@ async fn _send_init_note(
         "View transaction on MidenScan: https://testnet.midenscan.com/tx/{:?}",
         init_tx_id
     );
-    client.sync_state().await?;
+    loop {
+        match client.sync_state().await {
+            Ok(_) => break,
+            Err(e) => {
+                println!("⚠️  Error syncing state after init tx: {:?}", e);
+                println!("Waiting 5 seconds before retrying...");
+                tokio::time::sleep(Duration::from_secs(5)).await;
+            }
+        }
+    }
 
     println!("naming initialize note creation tx submitted, waiting for onchain commitment");
 
@@ -747,7 +939,16 @@ async fn _send_init_note(
 
     sleep(Duration::from_secs(6)).await;
 
-    client.sync_state().await?;
+    loop {
+        match client.sync_state().await {
+            Ok(_) => break,
+            Err(e) => {
+                println!("⚠️  Error syncing state after wait_for_tx: {:?}", e);
+                println!("Waiting 5 seconds before retrying...");
+                tokio::time::sleep(Duration::from_secs(5)).await;
+            }
+        }
+    }
 
     Ok(())
 }

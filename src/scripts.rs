@@ -1,36 +1,29 @@
 use miden_client::{
     ScriptBuilder,
-    account::AccountId,
+    account::{Account, AccountId},
     keystore::FilesystemKeyStore,
     note::{NoteAssets, NoteInputs},
     transaction::{OutputNote, TransactionRequestBuilder},
 };
 use miden_crypto::{Felt, Word};
+use rand::rngs::StdRng;
 use std::{fs, path::Path, sync::Arc};
 use tokio::time::{Duration, sleep};
 
 use crate::{
-    accounts::{create_deployer_account, create_naming_account, create_network_naming_account},
     client::{create_keystore, initiate_client},
     notes::{create_library, create_note_for_naming, create_note_for_naming_with_client},
     transaction::wait_for_tx,
 };
 
-pub async fn deploy_as_network_account() -> anyhow::Result<()> {
-    println!("Starting Miden Name Registry deployment ( Using network account )");
-    println!("=================================================");
-    println!("Deleting existing store & keystore (store.sqlite3)");
-    let _ = std::fs::remove_file("store.sqlite3");
-    let _ = std::fs::remove_dir("keystore");
-    println!("Deletion complete.");
-    println!("=================================================");
-
-    let mut keystore = create_keystore()?;
-    let mut client = initiate_client(keystore.clone()).await?;
-
-    let deployer_account = create_deployer_account(&mut client, &mut keystore).await?;
-    let naming_account = create_network_naming_account(&mut client).await?;
-
+pub async fn deploy_as_network_account(
+    client: &mut miden_client::Client<
+        miden_client::keystore::FilesystemKeyStore<rand::rngs::StdRng>,
+    >,
+    keystore: &mut Arc<FilesystemKeyStore<StdRng>>,
+    deployer_account: Account,
+    naming_account: Account,
+) -> anyhow::Result<()> {
     // Init note
     let script_code = fs::read_to_string(Path::new("./masm/scripts/init_on_chain.masm")).unwrap();
 
@@ -59,7 +52,7 @@ pub async fn deploy_as_network_account() -> anyhow::Result<()> {
     );
 
     // Wait for the transaction to be committed
-    wait_for_tx(&mut client, tx_id).await.unwrap();
+    wait_for_tx(client, tx_id).await.unwrap();
 
     // Contract initialzed
 
@@ -78,7 +71,7 @@ pub async fn deploy_as_network_account() -> anyhow::Result<()> {
         deployer_account.id(),
         naming_account.id(),
         NoteAssets::new(vec![]).unwrap(),
-        &mut client,
+        client,
     )
     .await?;
 
@@ -99,7 +92,7 @@ pub async fn deploy_as_network_account() -> anyhow::Result<()> {
     println!("network init note creation tx submitted, waiting for onchain commitment");
 
     // Wait for the note transaction to be committed
-    wait_for_tx(&mut client, init_tx_id).await.unwrap();
+    wait_for_tx(client, init_tx_id).await.unwrap();
 
     sleep(Duration::from_secs(6)).await;
 
@@ -130,7 +123,7 @@ pub async fn deploy_as_network_account() -> anyhow::Result<()> {
         deployer_account.id(),
         naming_account.id(),
         NoteAssets::new(vec![]).unwrap(),
-        &mut client,
+        client,
     )
     .await?;
 
@@ -151,7 +144,7 @@ pub async fn deploy_as_network_account() -> anyhow::Result<()> {
     println!("network set price note creation tx submitted, waiting for onchain commitment");
 
     // Wait for the note transaction to be committed
-    wait_for_tx(&mut client, set_price_tx_id).await.unwrap();
+    wait_for_tx(client, set_price_tx_id).await.unwrap();
 
     sleep(Duration::from_secs(6)).await;
 
