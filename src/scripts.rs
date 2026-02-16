@@ -1,14 +1,14 @@
 use miden_client::{
+    Client,
     account::AccountId,
     asset::FungibleAsset,
     keystore::FilesystemKeyStore,
     note::{Note, NoteAssets, NoteFile, NoteId, NoteInputs},
     store::NoteFilter,
     transaction::{OutputNote, TransactionRequestBuilder},
-    Client,
 };
-use miden_standards::code_builder::CodeBuilder;
 use miden_crypto::{Felt, Word};
+use miden_standards::code_builder::CodeBuilder;
 use std::{fs, path::Path};
 use tokio::time::{Duration, sleep};
 
@@ -70,10 +70,7 @@ pub async fn deploy(is_network: bool, use_testnet: bool) -> anyhow::Result<()> {
         .await?;
 
     let base_url = midenscan_base_url(use_testnet);
-    println!(
-        "View transaction on MidenScan: {}/tx/{:?}",
-        base_url, tx_id
-    );
+    println!("View transaction on MidenScan: {}/tx/{:?}", base_url, tx_id);
 
     // Wait for the transaction to be committed
     wait_for_tx(&mut client, tx_id).await.unwrap();
@@ -134,12 +131,16 @@ pub async fn deploy(is_network: bool, use_testnet: bool) -> anyhow::Result<()> {
 
     if let Some(record) = new_account_state {
         let account: miden_protocol::account::Account = record.try_into().unwrap();
-        let count: Word = account.storage().get_item(&slot_name("naming::init_flag")).unwrap().into();
+        let count: Word = account
+            .storage()
+            .get_item(&slot_name("naming::init_flag"))
+            .unwrap()
+            .into();
         println!("Final deployer prefix value: {}", count.to_string());
     }
 
     // SET PRICE
-    let payment_token_id = AccountId::from_hex("0x54bf4e12ef20082070758b022456c7")?;
+    let payment_token_id = AccountId::from_hex("0x37d5977a8e16d8205a360820f0230f")?;
 
     let set_prices_note_inputs = NoteInputs::new(
         [
@@ -186,7 +187,13 @@ pub async fn deploy(is_network: bool, use_testnet: bool) -> anyhow::Result<()> {
     client.sync_state().await?;
 
     if !is_network {
-        consume_note_by_id(&mut client, set_prices_note_id, naming_account.id(), use_testnet).await?;
+        consume_note_by_id(
+            &mut client,
+            set_prices_note_id,
+            naming_account.id(),
+            use_testnet,
+        )
+        .await?;
     }
 
     let new_account_state = client.get_account(naming_account.id()).await.unwrap();
@@ -206,10 +213,7 @@ pub async fn deploy(is_network: bool, use_testnet: bool) -> anyhow::Result<()> {
             .get_map_item(&prices_slot, one_letter_word)
             .unwrap()
             .into();
-        println!(
-            "one letter price value: {}",
-            one_letter_price.to_string()
-        );
+        println!("one letter price value: {}", one_letter_price.to_string());
 
         let two_letter_word = Word::new([
             Felt::new(payment_token_id.suffix().as_int()),
@@ -222,10 +226,7 @@ pub async fn deploy(is_network: bool, use_testnet: bool) -> anyhow::Result<()> {
             .get_map_item(&prices_slot, two_letter_word)
             .unwrap()
             .into();
-        println!(
-            "two letter price value: {}",
-            two_letter_price.to_string()
-        );
+        println!("two letter price value: {}", two_letter_price.to_string());
 
         let three_letter_word = Word::new([
             Felt::new(payment_token_id.suffix().as_int()),
@@ -254,10 +255,7 @@ pub async fn deploy(is_network: bool, use_testnet: bool) -> anyhow::Result<()> {
             .get_map_item(&prices_slot, four_letter_word)
             .unwrap()
             .into();
-        println!(
-            "four letter price value: {}",
-            four_letter_price.to_string()
-        );
+        println!("four letter price value: {}", four_letter_price.to_string());
 
         let five_letter_word = Word::new([
             Felt::new(payment_token_id.suffix().as_int()),
@@ -270,10 +268,7 @@ pub async fn deploy(is_network: bool, use_testnet: bool) -> anyhow::Result<()> {
             .get_map_item(&prices_slot, five_letter_word)
             .unwrap()
             .into();
-        println!(
-            "five letter price value: {}",
-            five_letter_price.to_string()
-        );
+        println!("five letter price value: {}", five_letter_price.to_string());
     }
 
     Ok(())
@@ -313,10 +308,7 @@ async fn consume_note_by_id(
         .await?;
 
     let base_url = midenscan_base_url(use_testnet);
-    println!(
-        "View transaction on MidenScan: {}/tx/{:?}",
-        base_url, tx_id
-    );
+    println!("View transaction on MidenScan: {}/tx/{:?}", base_url, tx_id);
 
     wait_for_tx(client, tx_id).await?;
 
@@ -326,7 +318,11 @@ async fn consume_note_by_id(
     Ok(())
 }
 
-pub async fn consume_single_note(note_id: String, naming_account_id: String, use_testnet: bool) -> anyhow::Result<()> {
+pub async fn consume_single_note(
+    note_id: String,
+    naming_account_id: String,
+    use_testnet: bool,
+) -> anyhow::Result<()> {
     let keystore = create_keystore()?;
     let mut client = initiate_client(keystore.clone(), use_testnet).await?;
 
@@ -427,7 +423,8 @@ pub async fn send_register_note(
     println!("Register note id {:?}", note_id.to_hex());
     println!(
         "View note on MidenScan: {}/note/{}",
-        base_url, note_id.to_hex()
+        base_url,
+        note_id.to_hex()
     );
     println!(
         "View transaction on MidenScan: {}/tx/{:?}",
@@ -484,8 +481,7 @@ pub async fn find_consumable_notes(account: String, use_testnet: bool) -> anyhow
                 .collect();
 
             let nop_script_code = fs::read_to_string(Path::new("./masm/scripts/nop.masm"))?;
-            let transaction_script =
-                CodeBuilder::default().compile_tx_script(nop_script_code)?;
+            let transaction_script = CodeBuilder::default().compile_tx_script(nop_script_code)?;
 
             let consume_request = TransactionRequestBuilder::new()
                 .input_notes(notes)
